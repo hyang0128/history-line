@@ -1,0 +1,25 @@
+---
+import type { CommentaryEntry } from '@/lib/parse-blocks';
+interface Props { entry: CommentaryEntry }
+const { entry } = Astro.props;
+const licLabel: Record<string, string> = {
+  'public-domain': '公版',
+  paraphrase: '转述',
+  'ai-synthesis': 'AI 综述',
+};
+---
+<div class="entry">
+  <div class="src">
+    {entry.author}
+    <span class="meta">· {entry.ref ? <a href={entry.ref} target="_blank" rel="noopener">{entry.source}</a> : entry.source}</span>
+    <span class="lic">[{licLabel[entry.license]}]</span>
+  </div>
+  <p class="text">{entry.text}</p>
+  {entry.quote && (
+    <details>
+      <summary>原文</summary>
+      <blockquote>{entry.quote}</blockquote>
+    </details>
+  )}
+  {entry.note && <div class="note">按：{entry.note}</div>}
+</div>

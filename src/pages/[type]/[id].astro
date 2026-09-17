@@ -1,0 +1,67 @@
+---
+/**
+ * 节点独立页：/event/x、/person/x、/topic/x、/world/x 共用。
+ */
+import Base from '@/layouts/Base.astro';
+import NodePanel from '@/components/NodePanel.astro';
+import { getAllNodes, formatRange, type NodeView } from '@/lib/nodes';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const nodes = await getAllNodes();
+  return nodes.map((n) => ({ params: { type: n.route, id: n.entry.data.id }, props: { node: n, all: nodes } }));
+}
+const { node, all } = Astro.props as { node: NodeView; all: NodeView[] };
+const d = node.entry.data;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+const eras = await getCollection('eras');
+const era = eras.find((e) => e.id === d.era);
+const dynasty = d.dynasty ? eras.find((e) => e.id === d.dynasty) : undefined;
+
+const byId = new Map(all.map((n) => [n.entry.data.id, n]));
+const related = d.related.map((id) => ({ id, node: byId.get(id) }));
+
+const idx = all.findIndex((n) => n.entry.data.id === d.id);
+const prev = idx > 0 ? all[idx - 1] : undefined;
+const next = idx < all.length - 1 ? all[idx + 1] : undefined;
+const typeLabel: Record<string, string> = { event: '事件', person: '人物', topic: '专题', world: '世界史' };
+---
+<Base title={d.title} description={d.summary}>
+  <p class="meta">
+    <a href={`${base}/`}>时间轴</a>
+    {era && <> / <a href={`${base}/era/${era.id}`}>{era.data.title}</a></>}
+    {dynasty && <> / <a href={`${base}/era/${dynasty.id}`}>{dynasty.data.title}</a></>}
+    {' '}/ {typeLabel[node.route]}
+  </p>
+  <h1>{d.title}{d.status === 'draft' && <span class="badge-draft">draft</span>}</h1>
+  <p class="meta">
+    {formatRange(d.date)}
+    {d.location && <> · {d.location}</>}
+    {d.aliases.length > 0 && <> · 又称 {d.aliases.join('、')}</>}
+    · 重要度 {d.importance}
+  </p>
+  <p>{d.tags.map((t) => <span class="tag">{t}</span>)}</p>
+  {d.status === 'draft' && <div class="warn">此条目为 AI 起草、尚未人工审核，出处与引文可能有误。</div>}
+
+  <NodePanel blocks={node.blocks} />
+
+  {related.length > 0 && (
+    <>
+      <h2>相关</h2>
+      <p class="related">
+        {related.map((r) =>
+          r.node ? <a href={`${base}/${r.node.route}/${r.id}`}>{r.node.entry.data.title}</a> : <span title="节点尚未编写">{r.id}</span>,
+        )}
+      </p>
+    </>
+  )}
+
+  <h2>前后</h2>
+  <p class="meta">
+    {prev ? <a href={`${base}/${prev.route}/${prev.entry.data.id}`}>← {prev.entry.data.title}</a> : <span>—</span>}
+    {' '}·{' '}
+    {next ? <a href={`${base}/${next.route}/${next.entry.data.id}`}>{next.entry.data.title} →</a> : <span>—</span>}
+  </p>
+  <p class="meta">状态：{d.status}{d.reviewed_at && <>，审核于 {d.reviewed_at.toISOString().slice(0, 10)}</>}{d.generated_by && <>，起草：{d.generated_by}</>}</p>
+</Base>

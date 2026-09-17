@@ -1,0 +1,33 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+const { title, description = '中国历史时间线：正史、野史、名家批注' } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <title>{title} · 史线</title>
+    <link rel="stylesheet" href={`${base}/styles/base.css`} />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href={`${base}/`}>史线</a>
+      <nav>
+        <a href={`${base}/`}>时间轴</a>
+        <a href={`${base}/about`}>凡例</a>
+      </nav>
+    </header>
+    <main class="container">
+      <slot />
+    </main>
+    <footer class="site-footer">
+      内容由 AI 辅助起草、人工审核。未审核（draft）条目仅本地可见。
+    </footer>
+  </body>
+</html>

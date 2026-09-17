@@ -1,0 +1,11 @@
+---
+interface Props { level: 'A' | 'B' | 'C' | 'D' }
+const { level } = Astro.props;
+const label: Record<string, string> = {
+  A: '正史或同时代官方记录，多源印证',
+  B: '正史有争议，或后世重要史书转录',
+  C: '笔记、杂史、私人著述',
+  D: '传说、孤证、附会',
+};
+---
+<span class={`cred cred-${level}`} title={label[level]}>{level}</span>

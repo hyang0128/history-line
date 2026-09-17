@@ -1,0 +1,22 @@
+{
+  "name": "history-line",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "中国历史时间线学习站：正史、野史、名家批注按时间轴呈现",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check"
+  },
+  "dependencies": {
+    "astro": "^5.13.0",
+    "yaml": "^2.9.1",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.10",
+    "typescript": "^5.9.3"
+  }
+}

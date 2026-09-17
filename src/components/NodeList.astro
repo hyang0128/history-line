@@ -1,0 +1,24 @@
+---
+import { formatRange, type NodeView } from '@/lib/nodes';
+interface Props { nodes: NodeView[] }
+const { nodes } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+<ul class="tl">
+  {nodes.map((n) => {
+    const d = n.entry.data;
+    return (
+      <li class={`imp-${d.importance}`}>
+        <span class="year">{formatRange(d.date)}</span>
+        <a class="title" href={`${base}/${n.route}/${d.id}`}>{d.title}</a>
+        <span class="dots" title="正史 / 野史 / 批注">
+          <i class={`o ${n.blocks.official.length ? 'on' : ''}`}></i>
+          <i class={`u ${n.blocks.unofficial.length ? 'on' : ''}`}></i>
+          <i class={`c ${n.blocks.commentary.length ? 'on' : ''}`}></i>
+        </span>
+        {d.status === 'draft' && <span class="badge-draft">draft</span>}
+        {d.summary && <span class="summary">{d.summary}</span>}
+      </li>
+    );
+  })}
+</ul>

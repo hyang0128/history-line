@@ -1,0 +1,20 @@
+---
+import CredibilityBadge from './CredibilityBadge.astro';
+import type { SourceEntry } from '@/lib/parse-blocks';
+interface Props { entry: SourceEntry }
+const { entry } = Astro.props;
+---
+<div class="entry">
+  <div class="src">
+    {entry.ref ? <a href={entry.ref} target="_blank" rel="noopener">{entry.source}</a> : entry.source}
+    <CredibilityBadge level={entry.credibility} />
+  </div>
+  <p class="text">{entry.text}</p>
+  {entry.quote && (
+    <details>
+      <summary>原文</summary>
+      <blockquote>{entry.quote}</blockquote>
+    </details>
+  )}
+  {entry.note && <div class="note">按：{entry.note}</div>}
+</div>

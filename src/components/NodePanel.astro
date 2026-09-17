@@ -1,0 +1,54 @@
+---
+/**
+ * 节点面板：概述 + 正史/野史/批注三个标签页（PLAN.md §4 方案 A）。
+ * 纯 CSS 标签页，无 JS。
+ */
+import SourceCite from './SourceCite.astro';
+import CommentaryCite from './CommentaryCite.astro';
+import type { NodeBlocks } from '@/lib/parse-blocks';
+interface Props { blocks: NodeBlocks }
+const { blocks } = Astro.props;
+
+const paragraphs = blocks.overview.split(/\n\s*\n/).map((p) => p.trim()).filter(Boolean);
+const groups: { key: string; label: string }[] = [
+  { key: 'classical', label: '古代史论' },
+  { key: 'modern', label: '近现代学者' },
+  { key: 'contemporary', label: '当代与政治人物（观点鲜明，请自行判断）' },
+  { key: 'ai', label: 'AI 综述' },
+];
+---
+<section class="overview">
+  {paragraphs.map((p) => <p>{p}</p>)}
+</section>
+
+<div class="panel">
+  <input type="radio" name="tab" id="t-o" checked />
+  <input type="radio" name="tab" id="t-u" />
+  <input type="radio" name="tab" id="t-c" />
+  <div class="tabs">
+    <label for="t-o">正史<span class="n">{blocks.official.length}</span></label>
+    <label for="t-u">野史<span class="n">{blocks.unofficial.length}</span></label>
+    <label for="t-c">批注<span class="n">{blocks.commentary.length}</span></label>
+  </div>
+  <div class="tabpane pane-o">
+    {blocks.official.length === 0 && <p class="empty">暂无正史条目。</p>}
+    {blocks.official.map((e) => <SourceCite entry={e} />)}
+  </div>
+  <div class="tabpane pane-u">
+    {blocks.unofficial.length === 0 && <p class="empty">暂无野史条目。</p>}
+    {blocks.unofficial.map((e) => <SourceCite entry={e} />)}
+  </div>
+  <div class="tabpane pane-c">
+    {blocks.commentary.length === 0 && <p class="empty">暂无批注条目。</p>}
+    {groups.map((g) => {
+      const items = blocks.commentary.filter((c) => c.category === g.key);
+      if (items.length === 0) return null;
+      return (
+        <div class="cat-group">
+          <h3>{g.label}</h3>
+          {items.map((e) => <CommentaryCite entry={e} />)}
+        </div>
+      );
+    })}
+  </div>
+</div>

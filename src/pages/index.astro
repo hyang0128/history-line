@@ -1,0 +1,58 @@
+---
+import Base from '@/layouts/Base.astro';
+import NodeList from '@/components/NodeList.astro';
+import { getAllNodes, getEras, formatRange, type NodeView } from '@/lib/nodes';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const nodes = await getAllNodes();
+const { eras, dynasties } = await getEras();
+
+const byEra = new Map<string, NodeView[]>();
+for (const n of nodes) {
+  const k = n.entry.data.era;
+  if (!byEra.has(k)) byEra.set(k, []);
+  byEra.get(k)!.push(n);
+}
+function dynastiesOf(eraId: string) {
+  return dynasties.filter((d) => d.data.parent === eraId);
+}
+function nodesOf(list: NodeView[], dynastyId?: string) {
+  return list.filter((n) => (dynastyId ? n.entry.data.dynasty === dynastyId : !n.entry.data.dynasty));
+}
+---
+<Base title="时间轴">
+  <h1>中国历史时间线</h1>
+  <p class="meta">
+    上古至 2000 年前后。共 {nodes.length} 个节点。圆点表示该节点含有
+    <span class="dots"><i class="o on"></i></span>正史
+    <span class="dots"><i class="u on"></i></span>野史
+    <span class="dots"><i class="c on"></i></span>批注。
+    M0 为纵向列表版，可缩放时间轴见 A2 任务包。
+  </p>
+
+  {eras.map((era) => {
+    const list = byEra.get(era.id) ?? [];
+    const dyns = dynastiesOf(era.id);
+    return (
+      <section class="era-band" style={`--era-color:${era.data.color ?? 'var(--accent)'}`}>
+        <div class="meta">{formatRange(era.data.date)}</div>
+        <h2><a href={`${base}/era/${era.id}`}>{era.data.title}</a></h2>
+        <p class="meta">{era.data.summary}</p>
+        {dyns.length > 0 && dyns.map((d) => {
+          const dn = nodesOf(list, d.id);
+          return (
+            <>
+              <div class="dyn-row">
+                <a href={`${base}/era/${d.id}`}>{d.data.title}</a>
+                <span class="meta"> {formatRange(d.data.date)}</span>
+              </div>
+              {dn.length > 0 && <NodeList nodes={dn} />}
+            </>
+          );
+        })}
+        {nodesOf(list).length > 0 && <NodeList nodes={nodesOf(list)} />}
+        {list.length === 0 && <p class="empty" style="margin-left:12px">暂无节点。</p>}
+      </section>
+    );
+  })}
+</Base>
