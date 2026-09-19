@@ -262,6 +262,13 @@ html[data-theme="dark"] mark { text-decoration-color: #ffb36b; }
 }
 .hidden { display: none !important; }
 
+/* 本地预览横幅（A4）：仅 dev / build:local 包含 draft 的构建渲染 */
+.preview-banner {
+  position: sticky; top: 0; z-index: 50;
+  background: var(--draft); color: #fff;
+  text-align: center; font-size: 13px; padding: 6px 12px;
+}
+
 /* ===== 移动端适配（A3）===== */
 @media (max-width: 600px) {
   .site-header { flex-wrap: wrap; gap: 4px 8px; }

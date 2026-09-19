@@ -1,0 +1,46 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Validate content
+        run: npm run validate
+      # 按仓库名计算 Pages 位置：用户页（*.github.io）base 为 '/'，项目页为 '/<repo>/'。
+      # astro.config.mjs 读取 SITE_URL / BASE_PATH（未设时用仓库默认值）。
+      - name: Set Pages base path
+        run: |
+          echo "SITE_URL=https://${{ github.repository_owner }}.github.io" >> $GITHUB_ENV
+          if [[ "${{ github.repository }}" == *".github.io"* ]]; then
+            echo "BASE_PATH=/" >> $GITHUB_ENV
+          else
+            echo "BASE_PATH=/${{ github.event.repository.name }}/" >> $GITHUB_ENV
+          fi
+      # 生产构建：只发布 reviewed / published（src/lib/publish.ts 未设 PUBLISH_ONLY）
+      - name: Build
+        run: npm run build
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+      - uses: actions/deploy-pages@v4

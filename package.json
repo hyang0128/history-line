@@ -5,8 +5,9 @@
   "type": "module",
   "description": "中国历史时间线学习站：正史、野史、名家批注按时间轴呈现",
   "scripts": {
-    "dev": "astro dev",
+    "dev": "node scripts/local-astro.mjs dev",
     "build": "astro build",
+    "build:local": "node scripts/local-astro.mjs build",
     "preview": "astro preview",
     "check": "astro check",
     "generate": "tsx scripts/generate/run.ts",

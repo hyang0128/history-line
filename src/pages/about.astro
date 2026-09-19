@@ -1,28 +1,61 @@
 ---
 import Base from '@/layouts/Base.astro';
+import { INCLUDE_DRAFTS } from '@/lib/publish';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 <Base title="凡例">
   <h1>凡例</h1>
-  <p class="meta">A4 任务包会补全此页。以下为 M0 最小说明。</p>
+  <p class="meta">本页说明内容的构成、可信度、版权与生成审核流程。供自学参考，非学术出版物。</p>
 
-  <h2>三类内容</h2>
+  <h2>内容构成</h2>
   <ul>
-    <li><strong>正史</strong>：二十四史、《资治通鉴》、实录、会要、出土文献等。</li>
-    <li><strong>野史</strong>：古代笔记、杂史、私人著述，不含演义小说与民间传说。文学作品偶尔收录并注明性质。</li>
-    <li><strong>批注</strong>：古代史论（可引原文）、近现代学者（只转述）、当代与政治人物（只转述并提示争议）、AI 综述（明确标记）。</li>
+    <li><strong>正史</strong>：二十四史、《资治通鉴》、实录、会要、出土文献等。为事件主体叙述。</li>
+    <li><strong>野史</strong>：古代笔记、杂史、私人著述（如《世说新语》《酉阳杂俎》《万历野获编》），不含演义小说与民间传说。偶尔收录文学作品并注明性质。</li>
+    <li><strong>批注</strong>：对事件的判断与解释，按来源分四类——古代史论（可引原文）、近现代学者（只转述观点）、当代与政治人物（只转述并提示争议）、AI 综述（明确标记，不冒充具体学者）。</li>
+    <li><strong>分期与朝代</strong>：页面顶层的背景色带，事件/人物/专题/世界史节点按时间轴展开。</li>
   </ul>
+  <p>每个节点页的正文按「概述 / 正史 / 野史 / 批注」四个板块呈现，正史、野史每条标注可信度，批注按来源分组。</p>
 
-  <h2>可信度</h2>
+  <h2>可信度等级</h2>
   <ul>
     <li><span class="cred cred-A">A</span> 正史或同时代官方记录，多源印证</li>
-    <li><span class="cred cred-B">B</span> 正史记载但有争议，或后世重要史书转录</li>
+    <li><span class="cred cred-B">B</span> 正史记载但存在争议，或后世重要史书转录</li>
     <li><span class="cred cred-C">C</span> 笔记、杂史、私人著述，有一定史料价值</li>
     <li><span class="cred cred-D">D</span> 传说、孤证、明显附会</li>
   </ul>
+  <p class="meta">等级标注的是<a href={`${base}/search`}>出处</a>本身的性质，不代表引文文字必然真实；正文另附白话叙述供参照。</p>
 
-  <h2>版权</h2>
-  <p>公版古籍可引原文并附白话；仍在版权期内的著作只转述观点并标注出处；AI 综述不归属于任何具体学者。</p>
+  <h2>版权与引用</h2>
+  <ul>
+    <li><span class="lic">public-domain</span> 公版古籍与史论：允许引原文、白话翻译，原文在「详情」中折叠展示。</li>
+    <li><span class="lic">paraphrase</span> 近现代与当代学者：只转述观点并标注书名与章节，不成段引用原文；逐条可能带有「原书待核」标记。</li>
+    <li><span class="lic">ai-synthesis</span> AI 综述的学界共识与分歧：不归属于任何具体学者，也不冒充原文。</li>
+  </ul>
+  <p>政治人物的读史批注归入转述类，并在展示时加「观点鲜明、存在争议」提示。</p>
 
-  <h2>生成与审核</h2>
-  <p>条目由 AI 按模板起草，人工逐条核对出处后标记为 reviewed 方可发布。未审核条目带 draft 标记，仅本地预览可见。</p>
+  <h2>生成与审核流程</h2>
+  <ol>
+    <li>AI 按模板起草节点（概述、正史、野史、批注），输出记为 <span class="badge-draft">draft</span>。</li>
+    <li>人工逐条核对出处卷次、引文与原书一致性、学者观点归属后，改标 reviewed。</li>
+    <li>生产构建只发布 <code>reviewed</code> / <code>published</code> 内容；<code>draft</code> 仅在本地开发与本地构建中可见，并带预览横幅与角标。</li>
+  </ol>
+  {INCLUDE_DRAFTS ? (
+    <div class="warn">当前为本地预览构建，包含未审核（draft）条目，出处与引文可能有误，请勿据此引用。</div>
+  ) : (
+    <p class="meta">当前为线上构建，仅含人工审核通过的内容。</p>
+  )}
+
+  <h2>使用</h2>
+  <ul>
+    <li><a href={`${base}/`}>时间轴</a>：滚轮缩放、拖拽平移；← → 平移、+ − 缩放、Home 全览；顶部快捷条跳分期；点击节点看详情。</li>
+    <li><a href={`${base}/search`}>搜索</a>：全文检索标题、概述、正史/野史/批注与出处名，可叠加类型、可信度筛选。</li>
+    <li>头部 ☀/☾ 按钮切换亮 / 暗 / 跟随系统主题。</li>
+  </ul>
+
+  <h2>范围与局限</h2>
+  <ul>
+    <li>时间范围：上古（传说时代）至 2000 年前后；近现代仅收教科书级关键节点，野史从略。</li>
+    <li>定位是自学辅助，不做学术级考证；凡「出处待核」或「原书待核」处请以原书为准。</li>
+    <li>不包含地图、关系图与测验（规划在后续阶段）。</li>
+  </ul>
 </Base>

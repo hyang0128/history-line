@@ -10,12 +10,15 @@
 
 ```bash
 npm install
-npm run dev      # http://localhost:4321
-npm run build    # 输出到 dist/
-npm run preview
-npm run mock     # 生成本地密度测试假数据（不进生产）
-npm run bench    # 3000 节点每帧 CPU 自检
+npm run dev        # 开发预览，包含未审核（draft）内容，带预览横幅
+npm run build      # 生产构建：只发布 reviewed / published，输出到 dist/
+npm run build:local # 本地完整构建：含 draft（与线上行为相反，用于本地检查全量）
+npm run preview    # 预览 dist/
+npm run mock       # 生成本地密度测试假数据（不进生产）
+npm run bench      # 3000 节点每帧 CPU 自检
 ```
+
+> base 默认 `/history-line/`，对应 GitHub Pages 地址 `https://hyang0128.github.io/history-line/`。访问本地站点请用 `http://localhost:4321/history-line/`；用 `SITE_URL` / `BASE_PATH` 环境变量可覆盖（部署工作流自动按仓库名设置）。
 
 ## 时间轴（A2）
 
@@ -73,6 +76,16 @@ npm run gen:eval                      # 多模型评测（计划）；加 --run 
 - API key 入 `.env`（复制 `.env.example`），不入库；单次运行预估超过 `costThresholdYuan`（默认 ¥20）会要求确认，`--yes` 跳过。
 - 本地缓存（`scripts/generate/.cache/`，已 gitignore）：同一队列重复运行不重复付费；需重写时加 `--force`（会覆盖已存在文件，慎用）。
 - `mock` provider 只用于离线自检管线，`--model mock` 跑通全流程但不产生真实调用与费用。
+
+## 部署（A4）
+
+推送 `main` 后由 GitHub Actions 自动构建并发布到 Pages（`.github/workflows/deploy.yml`）：
+
+1. 仓库 Settings → Pages → **Source 选「GitHub Actions」**（不是 Deploy from a branch）。
+2. 工作流执行：`npm ci` → `npm run validate`（内容校验，阻止结构错误上线）→ 按仓库名计算 `base` → `npm run build`（生产构建，**只发布 reviewed/published**）→ 上传 `dist/` 到 Pages。
+3. 发布地址为 `https://<owner>.github.io/<repo>/`（本仓库 `https://hyang0128.github.io/history-line/`）。
+
+**发布策略**：draft 内容不会出现在线上；需要在部署前核对的条目请先在本地 `npm run dev` 逐条看，改 `status` 为 `reviewed` 再推送。凡「出处待核 / 原书待核」标记的节点不应改为 reviewed。
 
 ## 参与方式
 

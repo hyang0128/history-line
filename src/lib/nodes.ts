@@ -4,6 +4,7 @@
  */
 import { getCollection, type CollectionEntry } from 'astro:content';
 import { parseBlocks, type NodeBlocks } from './parse-blocks';
+import { INCLUDE_DRAFTS } from './publish';
 
 export type NodeCollection = 'events' | 'persons' | 'topics' | 'world';
 export type NodeEntry = CollectionEntry<NodeCollection>;
@@ -42,6 +43,8 @@ export async function getAllNodes(): Promise<NodeView[]> {
       });
     }
   }
+  // A4：生产构建只发布 reviewed / published；dev 与 build:local 才含 draft。
+  if (!INCLUDE_DRAFTS) return out.filter((n) => n.entry.data.status !== 'draft').sort(byDate);
   return out.sort(byDate);
 }
 
