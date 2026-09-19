@@ -9,6 +9,7 @@ import { zoom, zoomIdentity } from 'd3-zoom';
 import 'd3-transition'; // 为 selection 挂 .transition()，供 era 跳转动画
 import type { TimelineIndex, TimelineIndexEra, TimelineIndexNode, TimelineNodeType } from '@/lib/timeline-types';
 import { renderDetailPanel } from './timeline-panel';
+import { readTheme, THEME_EVENT } from '../../lib/theme';
 
 export interface TimelineConfig {
   /** BASE_URL 前缀，如 /history-line */
@@ -191,7 +192,7 @@ function prepare(
     k: 1,
     tx: 0,
     maxK: 1,
-    isDark: window.matchMedia('(prefers-color-scheme: dark)').matches,
+    isDark: readTheme() === 'dark',
     rowY: { bandEra: 0, bandDyn: 0 },
     active: new Set(TRACKS),
     hit: [],
@@ -938,11 +939,12 @@ function wireControls(st: State): void {
     });
   }
   const darkQuery = window.matchMedia('(prefers-color-scheme: dark)');
-  const onTheme = (e: MediaQueryListEvent) => {
-    st.isDark = e.matches;
+  const onTheme = () => {
+    st.isDark = readTheme() === 'dark';
     redraw(st);
   };
   darkQuery.addEventListener?.('change', onTheme);
+  window.addEventListener(THEME_EVENT, onTheme);
 }
 
 function wireResize(st: State): void {

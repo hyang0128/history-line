@@ -26,6 +26,13 @@ npm run bench    # 3000 节点每帧 CPU 自检
 - 顶部快捷条跳分期；四轨道（事件/人物/专题/世界史）可开关；URL hash 深链 `#t=700..800&n=anshi`。
 - 密度自检：`npm run mock && npm run dev`，访问 `/?mock=3000&hud=1` 看帧耗时；`npm run bench` 是 headless 版本。
 
+## 搜索、筛选与主题（A3）
+
+- **搜索**（`/search`）：构建期产出 `dist/search/index.json`，客户端全文检索标题、别名、概述与正史/野史/批注内容、出处名，命中位置与可信度一并展示；空词时按重要度浏览全站。
+- **筛选**：首页"节点目录"与搜索页均有筛选条（类型 / 可信度 / 标签 / 含未审核），状态写入 URL（`?type=..&cred=..&tag=..&drafts=0`），可分享、可后退。
+- **主题**：头部 ☀/☾ 按钮在"跟随系统 → 亮 → 暗"三态间循环，选择存 `localStorage`，时间轴同步换色。
+- 说明：搜索为自建索引而非 Pagefind（节点三块内容位于 `display:none` 的标签页，Pagefind 爬虫会跳过，见 docs/worklog.md 2026-09-19 A3 遗留）。
+
 ## 目录
 
 ```

@@ -168,3 +168,26 @@
 - `mao-zedong` 因模型内容过滤曾连续 3 次空响应，第 4 次成功；若复现可改更中性的 hint。
 - 318 篇 draft 的人工审核未做：卷次待核 + "（AI收集）"学者观点 + `related` 补链，均不阻塞发布（draft 不会进构建）。
 - 单价回填 + `docs/model-eval.md` 的档位定稿仍待 Ark 账单。
+
+---
+
+## 2026-09-19 · A3 · 搜索、筛选与主题（M2 收尾，分支 `feat/search`）
+
+改动：
+- **搜索**：构建期由 `getAllNodes()` + `parseBlocks()` 产出 `dist/search/index.json`（329 节点 + 分期/朝代 id→名称表）；`/search` 页客户端中文全文检索，命中范围=标题/别名/摘要/标签/概述/正史/野史/批注内容与出处名；空格分词 AND、importance 加权排序、`<mark>` 高亮、命中最优块摘要。
+- **筛选**：首页目录与搜索页共用筛选条（类型/可信度/标签/含未审核），状态写入 URL 搜索参数（type/cred/tag/drafts）；首页对 `li[data-*]` 做客户端过滤并折叠空分期/朝代块；`popstate` 恢复，支持分享与后退。
+- **主题**：深浅色三态（跟随系统 / 亮 / 暗）。`<html data-theme>` + localStorage（key `hl-theme`），首屏内联脚本在绘制前应用避免闪烁；头部按钮循环切换；时间轴 `timeline.ts` 改为经 `readTheme()` 读取 `data-theme` 并监听 `hl-themechange` 事件重绘；`base.css` 深色变量改为 `[data-theme="dark"]` 优先 + 系统偏好兜底。
+- **移动端**：头部换行、筛选条/搜索框/结果页小屏适配、目录列表间距（max-width:600px 媒体查询）。
+- 新增：`src/lib/theme.ts`、`src/lib/search-filter.ts`、`src/lib/search-index.ts`、`src/pages/search.astro`、`src/pages/search/index.json.ts`、`src/components/SearchUI.astro`、`src/components/FilterBar.astro`、`src/components/search.ts`。
+- 修改：`Base.astro`（主题初始化 + 切换按钮 + 导航加"搜索"）、`index.astro`（接入 FilterBar、目录包 `#directory`、朝代块套 `.dyn-block`）、`NodeList.astro`（li 加 data-*）、`timeline.ts`（主题联动）、`public/styles/base.css`、`README.md`。
+
+自检：
+- `astro check` 0 错误 0 警告；`npm run build` 367 页成功。
+- 用真实索引跑纯逻辑自测：标题命中（安史之乱）、正文命中（李林甫）、出处命中（资治通鉴→129 条、where 显示"出处 · 《资治通鉴》…"）、批注命中（陈寅恪→38 条）、双关键词 AND（长安 叛乱）、无关词 0 命中、筛选组合（event + 含A级出处 + 隐藏 draft → 10 节点）全部符合预期。
+- 静态冒烟：/、/search/index.json、/timeline/index.json 均 200。
+- **浏览器交互**（输入即搜、筛选折叠、主题切换与时间轴重绘、前进后退）受沙箱网络限制未实测，请 `npm run dev` 人工过一遍。
+
+遗留 / 待规划会话定夺：
+- **搜索用自建索引替代了 PLAN §5.1/§10.3 指定的 Pagefind**。原因：节点三块内容放在纯 CSS 标签页里，非激活 tab 是 `display:none`，Pagefind 爬虫按计算样式会跳过隐藏内容，索引不到出处与批注——恰好是 A3 验收要求的命中范围；自建索引零依赖、可精确控制命中范围、满足验收。若规划会话仍想用 Pagefind，需在节点页另备一份可被爬取的副本。
+- `/search/index.json` 未压缩约 1.5MB（中文 UTF-8），仅搜索页加载；可接受，后续可裁剪概述长度或换 Pagefind 优化。
+- 与 A3 无关的既有待办保持不变：318 篇 draft 审核、models.yaml 单价回填、C 批 `related` 补链。

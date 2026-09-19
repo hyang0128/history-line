@@ -3,12 +3,26 @@ import { formatRange, type NodeView } from '@/lib/nodes';
 interface Props { nodes: NodeView[] }
 const { nodes } = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+function credsOf(n: NodeView): string {
+  const s = new Set<string>();
+  for (const e of [...n.blocks.official, ...n.blocks.unofficial]) s.add(e.credibility);
+  return Array.from(s).sort().join('');
+}
 ---
 <ul class="tl">
   {nodes.map((n) => {
     const d = n.entry.data;
+    const creds = credsOf(n);
     return (
-      <li class={`imp-${d.importance}`}>
+      <li
+        class={`imp-${d.importance}`}
+        data-type={n.route}
+        data-imp={d.importance}
+        data-creds={creds}
+        data-status={d.status}
+        data-tags={d.tags.join(',')}
+        data-title={d.title}
+      >
         <span class="year">{formatRange(d.date)}</span>
         <a class="title" href={`${base}/${n.route}/${d.id}`}>{d.title}</a>
         <span class="dots" title="正史 / 野史 / 批注">

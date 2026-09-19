@@ -1,0 +1,116 @@
+---
+/**
+ * 首页"节点目录"的筛选栏（A3）。只在前台岛（client:load）使用。
+ * 通过 li[data-*] 过滤预渲染的目录；状态写入 URL 搜索参数，支持前进后退。
+ */
+import { TYPE_LABELS, CRED_LABELS } from '@/lib/search-filter';
+interface Props {
+  tags: string[];
+  total: number;
+}
+const { tags, total } = Astro.props;
+const allTags = Array.from(new Set(tags)).sort();
+---
+<div class="filters" data-fb data-total={total}>
+  <span class="filter-group">
+    <span>类型</span>
+    {Object.values(TYPE_LABELS).map((t) => (
+      <button type="button" class="chip" data-fbtype={t.key}>{t.label}</button>
+    ))}
+  </span>
+  <span class="filter-group">
+    <span>可信度</span>
+    {CRED_LABELS.map((c) => (
+      <button type="button" class="chip" data-fbcred={c} title={`含 ${c} 级出处的节点`}>{c}</button>
+    ))}
+  </span>
+  <span class="filter-group">
+    <label for="fb-tag">标签</label>
+    <input id="fb-tag" type="text" list="fb-tags" placeholder="如 战争、科举" autocomplete="off" />
+    <datalist id="fb-tags">
+      {allTags.map((t) => <option value={t} />)}
+    </datalist>
+  </span>
+  <span class="filter-group">
+    <button type="button" class="chip" id="fb-drafts" aria-pressed="true">含未审核</button>
+  </span>
+  <span class="search-tag">显示 <b id="fb-count">{total}</b> / {total} 个节点</span>
+</div>
+
+<script>
+  import { filterFromParams, filterToQuery, matches, type FilterState } from '../lib/search-filter';
+
+  const root = document.querySelector<HTMLElement>('[data-fb]');
+  if (!root) throw new Error('筛选栏挂载点缺失');
+  const totalEl = root.querySelector<HTMLElement>('#fb-count');
+  const typeBtns = Array.from(root.querySelectorAll<HTMLButtonElement>('[data-fbtype]'));
+  const credBtns = Array.from(root.querySelectorAll<HTMLButtonElement>('[data-fbcred]'));
+  const tagInput = root.querySelector<HTMLInputElement>('#fb-tag');
+  const draftsBtn = root.querySelector<HTMLButtonElement>('#fb-drafts');
+
+  let state: FilterState = { types: [], creds: [], tag: '', drafts: true };
+
+  function readState() {
+    state.types = typeBtns.filter((b) => b.classList.contains('on')).map((b) => b.dataset.fbtype!);
+    state.creds = credBtns.filter((b) => b.classList.contains('on')).map((b) => b.dataset.fbcred!);
+    state.tag = (tagInput?.value ?? '').trim();
+    state.drafts = draftsBtn?.classList.contains('on') ?? true;
+  }
+
+  function syncUI() {
+    typeBtns.forEach((b) => b.classList.toggle('on', state.types.includes(b.dataset.fbtype!)));
+    credBtns.forEach((b) => b.classList.toggle('on', state.creds.includes(b.dataset.fbcred!)));
+    if (tagInput) tagInput.value = state.tag;
+    if (draftsBtn) {
+      const on = state.drafts;
+      draftsBtn.classList.toggle('on', on);
+      draftsBtn.setAttribute('aria-pressed', String(on));
+    }
+  }
+
+  function applyFilter() {
+    readState();
+    let visible = 0;
+    const items = document.querySelectorAll<HTMLElement>('#directory li[data-type]');
+    for (const li of items) {
+      const ok = matches(state, {
+        type: li.dataset.type!,
+        creds: li.dataset.creds ?? '',
+        status: li.dataset.status ?? 'published',
+        tags: (li.dataset.tags ?? '').toLowerCase(),
+        title: li.dataset.title ?? '',
+      });
+      li.classList.toggle('hidden', !ok);
+      if (ok) visible++;
+    }
+    document.querySelectorAll<HTMLElement>('#directory .era-band, #directory .dyn-block').forEach((sec) => {
+      const any = sec.querySelector('li[data-type]:not(.hidden)') !== null;
+      sec.classList.toggle('hidden', !any);
+    });
+    if (totalEl) totalEl.textContent = String(visible);
+    const q = filterToQuery(state);
+    history.replaceState(null, '', location.pathname + (q.size ? `?${q}` : '') + location.hash);
+  }
+
+  const debounce = (fn: () => void, ms: number) => {
+    let t: number;
+    return () => {
+      window.clearTimeout(t);
+      t = window.setTimeout(fn, ms);
+    };
+  };
+
+  typeBtns.forEach((b) => b.addEventListener('click', applyFilter));
+  credBtns.forEach((b) => b.addEventListener('click', applyFilter));
+  draftsBtn?.addEventListener('click', applyFilter);
+  tagInput?.addEventListener('input', debounce(applyFilter, 200));
+
+  // 首次进入：按 URL 恢复筛选状态，并应用
+  function restore() {
+    state = filterFromParams(new URLSearchParams(location.search));
+    syncUI();
+    applyFilter();
+  }
+  restore();
+  window.addEventListener('popstate', restore);
+</script>
