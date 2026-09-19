@@ -1,4 +1,5 @@
 ---
+import { INCLUDE_DRAFTS } from '../lib/publish';
 interface Props {
   title: string;
   description?: string;
@@ -27,6 +28,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     </script>
   </head>
   <body>
+    {INCLUDE_DRAFTS && <div class="preview-banner">本地预览模式：含未审核（draft）内容，仅本地可见，线上构建自动排除。</div>}
     <header class="site-header">
       <a class="brand" href={`${base}/`}>史线</a>
       <nav>

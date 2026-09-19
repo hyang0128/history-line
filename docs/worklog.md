@@ -191,3 +191,27 @@
 - **搜索用自建索引替代了 PLAN §5.1/§10.3 指定的 Pagefind**。原因：节点三块内容放在纯 CSS 标签页里，非激活 tab 是 `display:none`，Pagefind 爬虫按计算样式会跳过隐藏内容，索引不到出处与批注——恰好是 A3 验收要求的命中范围；自建索引零依赖、可精确控制命中范围、满足验收。若规划会话仍想用 Pagefind，需在节点页另备一份可被爬取的副本。
 - `/search/index.json` 未压缩约 1.5MB（中文 UTF-8），仅搜索页加载；可接受，后续可裁剪概述长度或换 Pagefind 优化。
 - 与 A3 无关的既有待办保持不变：318 篇 draft 审核、models.yaml 单价回填、C 批 `related` 补链。
+
+---
+
+## 2026-09-19 · A4 · 部署与凡例（分支 `feat/deploy`）
+
+改动：
+- **发布模式**：`src/lib/publish.ts` 新增 `INCLUDE_DRAFTS`（读 `PUBLISH_ONLY`）；`getAllNodes()` 在生产构建过滤 `status: draft`，波及全部派生数据——首页目录、分期/朝代页节点数、时间轴索引、搜索索引、节点独立页、timeline-detail JSON 全同步排除 draft。draft 页面文件也不会生成。
+- **npm 脚本**：`build` 保持 `astro build` 为生产构建（排除 draft）；`dev` 与新增 `build:local` 经 `scripts/local-astro.mjs` 以 `PUBLISH_ONLY=false` 启动（跨平台，Windows 可跑），包含 draft 并渲染预览横幅。
+- **水印**：`Base.astro` 在 `INCLUDE_DRAFTS` 时显示红色 sticky 预览横幅 + `about` 页对应提示；draft 节点角标与正文警告沿用 M0。
+- **base/site**：`astro.config.mjs` 默认 `base='/history-line/'`、`site='https://hyang0128.github.io'`（本仓库 Pages 地址），支持 `SITE_URL` / `BASE_PATH` 环境变量覆盖。
+- **GitHub Actions**：`.github/workflows/deploy.yml` —— push main 触发；`npm ci` → `npm run validate` → 按仓库名计算 base（项目页 `<owner>.github.io/<repo>`、用户页 `/`）→ `npm run build` → `configure-pages` / `upload-pages-artifact` / `deploy-pages`；权限与并发控制齐备。
+- **凡例页**：`about.astro` 补全——内容构成（三类+分期）、可信度 A–D、版权三类 license、生成审核流程、draft 水印说明、时间轴/搜索/主题用法、范围与局限。
+- **README**：更新本地运行（dev 含 draft、build 为生产、build:local 含 draft、访问路径带 base），新增「部署（A4）」章节（Pages 选 Actions 源、发布策略说明）。新增 `base.css` 的 `.preview-banner`。
+
+自检：
+- `astro check` 0 错误。
+- `npm run build`（生产）：367→**47 页**（仅 reviewed 的 11 节点 + 35 分期/朝代 + 首页/凡例/搜索），dist 无任何 draft 节点页；timeline/index.json 仅 11 节点、search/index.json 仅 11 节点；HTML 内链接均带 `/history-line/` 前缀；无预览横幅、无 draft 角标。
+- `npm run build:local`（含 draft）：页数恢复；预产期内 draft 节点页存在；HTML 含预览横幅；timeline/搜索索引 329 节点。
+- 本地 serve 冒烟：生产版本的 `/`、`/history-line/styles/base.css`、`/about`、`/search/index.json` 正常。
+
+遗留 / 待办：
+- **未在真实 GitHub 仓库跑通流水线**（沙箱无法推送）。需用户：① Settings→Pages→Source 选「GitHub Actions」；② 推送 `main` 观察 Actions；③ 核对线上地址与 draft 排除。
+- 生产只剩 11 个 reviewed 节点，发布后可访问但内容很薄——与 C 系列审核进度直接相关（§11 主线程）。
+- 若未来仓库改名或迁到用户页站点，改 astro.config.mjs 默认值或依赖 Actions 自动计算即可。
