@@ -1,6 +1,7 @@
 ---
 import Base from '@/layouts/Base.astro';
 import NodeList from '@/components/NodeList.astro';
+import Timeline from '@/components/Timeline/Timeline.astro';
 import { getAllNodes, getEras, formatRange, type NodeView } from '@/lib/nodes';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
@@ -27,9 +28,12 @@ function nodesOf(list: NodeView[], dynastyId?: string) {
     <span class="dots"><i class="o on"></i></span>正史
     <span class="dots"><i class="u on"></i></span>野史
     <span class="dots"><i class="c on"></i></span>批注。
-    M0 为纵向列表版，可缩放时间轴见 A2 任务包。
+    滚轮缩放、拖拽平移，← → 移动、+ − 缩放；点击节点打开详情。
   </p>
 
+  {nodes.length > 0 && <Timeline />}
+
+  <h2>节点目录</h2>
   {eras.map((era) => {
     const list = byEra.get(era.id) ?? [];
     const dyns = dynastiesOf(era.id);

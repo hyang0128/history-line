@@ -8,15 +8,34 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "check": "astro check"
+    "check": "astro check",
+    "generate": "tsx scripts/generate/run.ts",
+    "validate": "tsx scripts/validate.ts",
+    "stats": "tsx scripts/stats.ts",
+    "review": "tsx scripts/review.ts",
+    "fixup": "tsx scripts/fixup.ts",
+    "gen:eval": "tsx scripts/generate/eval.ts",
+    "mock": "tsx scripts/dev/mock-3000.ts",
+    "bench": "tsx scripts/dev/timeline-bench.ts"
   },
   "dependencies": {
     "astro": "^5.13.0",
+    "d3-scale": "^4.0.2",
+    "d3-selection": "^3.0.0",
+    "d3-transition": "^3.0.1",
+    "d3-zoom": "^3.0.0",
     "yaml": "^2.9.1",
     "zod": "^3.25.76"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.10",
+    "@types/d3-scale": "^4.0.9",
+    "@types/d3-selection": "^3.0.12",
+    "@types/d3-transition": "^3.0.9",
+    "@types/d3-zoom": "^3.0.8",
+    "@types/node": "^22.20.3",
+    "dotenv": "^17.4.2",
+    "tsx": "^4.23.13",
     "typescript": "^5.9.3"
   }
 }
