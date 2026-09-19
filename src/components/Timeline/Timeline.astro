@@ -1,0 +1,75 @@
+---
+/**
+ * 时间轴组件（A2）。Canvas 无级缩放时间轴，见 PLAN.md §5.3。
+ * 数据从 /timeline/index.json 按需加载；点击节点从 /timeline-detail/… 拉详情。
+ */
+import type { TimelineConfig } from './timeline';
+
+interface Props {
+  base?: string;
+  /** 初始视口（局部时间轴用，如朝代页） */
+  range?: { start: number; end: number };
+  /** 只显示某分期（局部时间轴用） */
+  filterEra?: string;
+  /** 只显示某朝代（局部时间轴用） */
+  filterDynasty?: string;
+  /** 隐藏顶部朝代快捷条 */
+  minimal?: boolean;
+}
+const { range, filterEra, filterDynasty, minimal = false } = Astro.props;
+const base = (Astro.props.base ?? import.meta.env.BASE_URL).replace(/\/$/, '');
+const cfg: TimelineConfig = {
+  base,
+  indexUrl: `${base}/timeline/index.json`,
+  range,
+  filterEra,
+  filterDynasty,
+  minimal,
+};
+---
+<figure class="timeline" data-cfg={JSON.stringify(cfg)} aria-label="可缩放的中国历史时间轴">
+  <figcaption class="timeline-controls">
+    <div class="tl-toggles">
+      <label class="tl-toggle"><input type="checkbox" data-track="event" checked />事件</label>
+      <label class="tl-toggle"><input type="checkbox" data-track="person" checked />人物</label>
+      <label class="tl-toggle"><input type="checkbox" data-track="topic" checked />专题</label>
+      <label class="tl-toggle"><input type="checkbox" data-track="world" checked />世界史</label>
+      <span class="tl-legend" title="青=正史 赭=野史 金=批注">
+        内容
+        <span class="dots"><i class="o on"></i></span>正史
+        <span class="dots"><i class="u on"></i></span>野史
+        <span class="dots"><i class="c on"></i></span>批注
+      </span>
+    </div>
+    <div class="tl-speedbar" aria-label="跳到分期"></div>
+  </figcaption>
+  <div class="timeline-stage">
+    <canvas class="timeline-canvas" aria-label="时间轴画布"></canvas>
+    <div class="timeline-status"></div>
+  </div>
+  <div class="timeline-tooltip" role="tooltip" hidden></div>
+  <div class="timeline-panel" hidden></div>
+  <noscript>
+    <p class="meta">时间轴需要 JavaScript。可用下方列表浏览节点。</p>
+  </noscript>
+</figure>
+
+<script>
+  import { initTimeline } from './timeline';
+  const els = document.querySelectorAll<HTMLElement>('.timeline[data-cfg]');
+  const q = new URLSearchParams(location.search);
+  for (const el of els) {
+    let cfg: Parameters<typeof initTimeline>[1];
+    try {
+      cfg = JSON.parse(el.dataset.cfg || '{}');
+    } catch {
+      console.error('时间轴配置解析失败', el);
+      continue;
+    }
+    // 密度自检：?mock=3000 时改用生成器产出的假数据（不进生产）
+    if (q.has('mock')) {
+      cfg.indexUrl = cfg.indexUrl.replace('/timeline/index.json', '/timeline/mock-3000.json');
+    }
+    void initTimeline(el, cfg);
+  }
+</script>

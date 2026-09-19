@@ -13,6 +13,9 @@ node_modules/
 # generation cache (A1)
 scripts/generate/.cache/
 
+# dev density mock (A2，不计入生产资源)
+public/timeline/mock-3000.json
+
 # os / editor
 .DS_Store
 Thumbs.db

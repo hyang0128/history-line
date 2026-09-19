@@ -1,6 +1,7 @@
 ---
 import Base from '@/layouts/Base.astro';
 import NodeList from '@/components/NodeList.astro';
+import Timeline from '@/components/Timeline/Timeline.astro';
 import { getAllNodes, getEras, formatRange } from '@/lib/nodes';
 import { getCollection } from 'astro:content';
 
@@ -19,6 +20,7 @@ const mine = nodes.filter((n) =>
 const children = isEra ? dynasties.filter((d) => d.data.parent === entry.id) : [];
 const parent = !isEra && entry.data.parent ? await getCollection('eras').then((a) => a.find((e) => e.id === entry.data.parent)) : undefined;
 const paragraphs = (entry.body ?? '').replace(/^##\s*概述\s*$/m, '').split(/\n\s*\n/).map((p) => p.trim()).filter(Boolean);
+const range = { start: entry.data.date.start, end: (entry.data.date.end ?? entry.data.date.start) + 1 };
 ---
 <Base title={entry.data.title}>
   <p class="meta">
@@ -29,6 +31,15 @@ const paragraphs = (entry.body ?? '').replace(/^##\s*概述\s*$/m, '').split(/\n
   <h1>{entry.data.title}</h1>
   <p class="meta">{formatRange(entry.data.date)}{entry.data.aliases.length > 0 && <> · 又称 {entry.data.aliases.join('、')}</>}</p>
   <section class="overview">{paragraphs.map((p) => <p>{p}</p>)}</section>
+
+  {mine.length > 0 && (
+    <Timeline
+      range={range}
+      filterEra={isEra ? entry.id : undefined}
+      filterDynasty={isEra ? undefined : entry.id}
+      minimal
+    />
+  )}
 
   {children.length > 0 && (
     <>

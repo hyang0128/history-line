@@ -43,6 +43,9 @@ const typeLabel: Record<string, string> = { event: '事件', person: '人物', t
   </p>
   <p>{d.tags.map((t) => <span class="tag">{t}</span>)}</p>
   {d.status === 'draft' && <div class="warn">此条目为 AI 起草、尚未人工审核，出处与引文可能有误。</div>}
+  <p class="meta">
+    <a href={`${base}/#t=${d.date.start - 20}..${(d.date.end ?? d.date.start) + 20}&n=${d.id}`}>在时间轴中查看</a>
+  </p>
 
   <NodePanel blocks={node.blocks} />
 

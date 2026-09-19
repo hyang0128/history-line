@@ -7,6 +7,9 @@ export default defineConfig({
   base: '/',
   output: 'static',
   trailingSlash: 'ignore',
+  // 本机 localhost 常解析为 ::1，导致 dev 只绑 IPv6 回环、IPv4 访问被拒。
+  // 显式绑 127.0.0.1，保证 http://localhost:4321 与 http://127.0.0.1:4321 都能打开。
+  server: { host: '127.0.0.1' },
   markdown: {
     shikiConfig: { theme: 'github-light' },
   },
