@@ -2,6 +2,7 @@
 import Base from '@/layouts/Base.astro';
 import NodeList from '@/components/NodeList.astro';
 import Timeline from '@/components/Timeline/Timeline.astro';
+import FilterBar from '@/components/FilterBar.astro';
 import { getAllNodes, getEras, formatRange, type NodeView } from '@/lib/nodes';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
@@ -14,6 +15,7 @@ for (const n of nodes) {
   if (!byEra.has(k)) byEra.set(k, []);
   byEra.get(k)!.push(n);
 }
+const allTags = Array.from(new Set(nodes.flatMap((n) => n.entry.data.tags))).sort();
 function dynastiesOf(eraId: string) {
   return dynasties.filter((d) => d.data.parent === eraId);
 }
@@ -34,29 +36,34 @@ function nodesOf(list: NodeView[], dynastyId?: string) {
   {nodes.length > 0 && <Timeline />}
 
   <h2>节点目录</h2>
-  {eras.map((era) => {
-    const list = byEra.get(era.id) ?? [];
-    const dyns = dynastiesOf(era.id);
-    return (
-      <section class="era-band" style={`--era-color:${era.data.color ?? 'var(--accent)'}`}>
-        <div class="meta">{formatRange(era.data.date)}</div>
-        <h2><a href={`${base}/era/${era.id}`}>{era.data.title}</a></h2>
-        <p class="meta">{era.data.summary}</p>
-        {dyns.length > 0 && dyns.map((d) => {
-          const dn = nodesOf(list, d.id);
-          return (
-            <>
-              <div class="dyn-row">
-                <a href={`${base}/era/${d.id}`}>{d.data.title}</a>
-                <span class="meta"> {formatRange(d.data.date)}</span>
+  <FilterBar tags={allTags} total={nodes.length} client:load />
+  <div id="directory">
+    {eras.map((era) => {
+      const list = byEra.get(era.id) ?? [];
+      const dyns = dynastiesOf(era.id);
+      return (
+        <section class="era-band" style={`--era-color:${era.data.color ?? 'var(--accent)'}`}>
+          <div class="meta">{formatRange(era.data.date)}</div>
+          <h2><a href={`${base}/era/${era.id}`}>{era.data.title}</a></h2>
+          <p class="meta">{era.data.summary}</p>
+          {dyns.length > 0 && dyns.map((d) => {
+            const dn = nodesOf(list, d.id);
+            return (
+              <div class="dyn-block" data-dyn={d.id}>
+                <div class="dyn-row">
+                  <a href={`${base}/era/${d.id}`}>{d.data.title}</a>
+                  <span class="meta"> {formatRange(d.data.date)}</span>
+                </div>
+                {dn.length > 0 && <NodeList nodes={dn} />}
               </div>
-              {dn.length > 0 && <NodeList nodes={dn} />}
-            </>
-          );
-        })}
-        {nodesOf(list).length > 0 && <NodeList nodes={nodesOf(list)} />}
-        {list.length === 0 && <p class="empty" style="margin-left:12px">暂无节点。</p>}
-      </section>
-    );
-  })}
+            );
+          })}
+          <div class="dyn-block">
+            {nodesOf(list).length > 0 && <NodeList nodes={nodesOf(list)} />}
+            {list.length === 0 && <p class="empty" style="margin-left:12px">暂无节点。</p>}
+          </div>
+        </section>
+      );
+    })}
+  </div>
 </Base>

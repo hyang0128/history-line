@@ -1,0 +1,204 @@
+---
+/**
+ * 搜索页岛屿（A3）。fetch 构建期产出的 /search/index.json，客户端检索与筛选，
+ * 关键词与筛选状态同步到 URL 搜索参数（q/type/cred/drafts），支持前进后退。
+ */
+import { TYPE_LABELS, CRED_LABELS } from '@/lib/search-filter';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const indexUrl = `${base}/search/index.json`;
+---
+<section
+  data-sui
+  data-index={indexUrl}
+  data-base={base}
+  aria-label="全文搜索"
+>
+  <div class="search-box">
+    <span aria-hidden="true">🔍</span>
+    <input type="search" id="q" placeholder="搜索事件、人物、专题、出处……" autocomplete="off" aria-label="搜索关键词" />
+  </div>
+  <div class="filters">
+    <span class="filter-group">
+      <span>类型</span>
+      {Object.values(TYPE_LABELS).map((t) => (
+        <button type="button" class="chip" data-sftype={t.key}>{t.label}</button>
+      ))}
+    </span>
+    <span class="filter-group">
+      <span>可信度</span>
+      {CRED_LABELS.map((c) => (
+        <button type="button" class="chip" data-sfcred={c}>{c}</button>
+      ))}
+    </span>
+    <span class="filter-group">
+      <button type="button" class="chip" id="sf-drafts" aria-pressed="true">含未审核</button>
+    </span>
+    <span class="search-tag">
+      <b id="sui-count">0</b> 条结果 · <span id="sui-ms">0</span> ms
+    </span>
+  </div>
+  <div id="sui-results" class="results" aria-live="polite"></div>
+</section>
+
+<script>
+  import { filterFromParams, filterToQuery, matches, TYPE_LABELS as _TYPES } from '../lib/search-filter';
+  import { search, highlight, type Hit, type SearchEntry } from './search';
+
+  const root = document.querySelector<HTMLElement>('[data-sui]');
+  if (!root) throw new Error('搜索挂载点缺失');
+  const indexUrl = root.dataset.index ?? '/search/index.json';
+  const baseUrl = (root.dataset.base ?? '').replace(/\/$/, '');
+
+  const input = root.querySelector<HTMLInputElement>('#q')!;
+  const typeBtns = Array.from(root.querySelectorAll<HTMLButtonElement>('[data-sftype]'));
+  const credBtns = Array.from(root.querySelectorAll<HTMLButtonElement>('[data-sfcred]'));
+  const draftsBtn = root.querySelector<HTMLButtonElement>('#sf-drafts');
+  const countEl = root.querySelector<HTMLElement>('#sui-count')!;
+  const msEl = root.querySelector<HTMLElement>('#sui-ms')!;
+  const resultsEl = root.querySelector<HTMLElement>('#sui-results')!;
+
+  let index: SearchEntry[] = [];
+  let names: Record<string, string> = {};
+  let state = { types: [] as string[], creds: [] as string[], tag: '', drafts: true };
+
+  const debounce = (fn: () => void, ms: number) => {
+    let t = 0;
+    return () => {
+      window.clearTimeout(t);
+      t = window.setTimeout(fn, ms);
+    };
+  };
+
+  async function init() {
+    try {
+      const res = await fetch(indexUrl);
+      if (!res.ok) throw new Error(String(res.status));
+      const data = (await res.json()) as { nodes: SearchEntry[]; names: Record<string, string> };
+      index = data.nodes ?? [];
+      names = data.names ?? {};
+    } catch (e) {
+      resultsEl.textContent = '搜索索引加载失败，请刷新重试。';
+      console.error('搜索索引加载失败', e);
+      return;
+    }
+    readURL();
+    apply();
+  }
+
+  function readURL() {
+    const p = new URLSearchParams(location.search);
+    state = filterFromParams(p);
+    input.value = p.get('q') ?? '';
+    syncUI();
+  }
+
+  function syncUI() {
+    typeBtns.forEach((b) => b.classList.toggle('on', state.types.includes(b.dataset.sftype!)));
+    credBtns.forEach((b) => b.classList.toggle('on', state.creds.includes(b.dataset.sfcred!)));
+    if (draftsBtn) {
+      const on = state.drafts;
+      draftsBtn.classList.toggle('on', on);
+      draftsBtn.setAttribute('aria-pressed', String(on));
+    }
+  }
+
+  function readChips() {
+    state.types = typeBtns.filter((b) => b.classList.contains('on')).map((b) => b.dataset.sftype!);
+    state.creds = credBtns.filter((b) => b.classList.contains('on')).map((b) => b.dataset.sfcred!);
+    state.drafts = draftsBtn?.classList.contains('on') ?? true;
+  }
+
+  function apply() {
+    readChips();
+    const q = input.value.trim();
+    const t0 = performance.now();
+    const filtered = index.filter((e) =>
+      matches(state, {
+        type: e.type,
+        creds: e.creds,
+        status: e.status,
+        tags: e.tags.join(' '),
+        title: e.title,
+      }),
+    );
+    const hits = q ? search(q, filtered) : filtered.map((entry) => ({ entry, score: 0, snippet: entry.summary ?? '', where: '', cred: '' } as Hit));
+    const ms = performance.now() - t0;
+    if (countEl) countEl.textContent = String(hits.length);
+    if (msEl) msEl.textContent = ms.toFixed(0);
+    render(q, hits);
+
+    const out = filterToQuery(state);
+    if (q) out.set('q', q);
+    else out.delete('q');
+    history.replaceState(null, '', location.pathname + (out.size ? `?${out}` : '') + location.hash);
+  }
+
+  function render(q: string, hits: Hit[]) {
+    if (!hits.length) {
+      resultsEl.textContent = '没有匹配的节点。换个关键词或调整筛选？';
+      return;
+    }
+    const terms = q ? q.toLowerCase().split(/\s+/).filter(Boolean) : [];
+    const show = hits.slice(0, 200);
+    const frag = document.createDocumentFragment();
+    for (const h of show) frag.appendChild(renderHit(h, terms));
+    if (hits.length > show.length) {
+      const note = document.createElement('p');
+      note.className = 'meta';
+      note.textContent = `共 ${hits.length} 条，仅显示前 ${show.length} 条，请加关键词或筛选。`;
+      frag.appendChild(note);
+    }
+    resultsEl.replaceChildren(frag);
+  }
+
+  function renderHit(h: Hit, terms: string[]): HTMLElement {
+    const e = h.entry;
+    const div = document.createElement('div');
+    div.className = 'result';
+
+    const a = document.createElement('a');
+    a.className = 'title';
+    a.href = `${baseUrl}/${e.type}/${e.id}`;
+    a.innerHTML = highlight(e.title, terms);
+    div.appendChild(a);
+    if (e.status === 'draft') {
+      const b = document.createElement('span');
+      b.className = 'badge-draft';
+      b.textContent = 'draft';
+      div.appendChild(b);
+    }
+
+    const meta = document.createElement('div');
+    meta.className = 'meta';
+    const parts = [e.date, _TYPES[e.type]?.label ?? e.type];
+    if (e.dyn && names[e.dyn]) parts.push(names[e.dyn]);
+    if (e.tags.length) parts.push(e.tags.join('、'));
+    meta.textContent = `${parts.join(' · ')} · 重要度 ${e.imp}`;
+    div.appendChild(meta);
+
+    if (h.where) {
+      const snip = document.createElement('p');
+      snip.className = 'snip';
+      const where = document.createElement('span');
+      where.className = 'where';
+      where.textContent = h.where;
+      snip.appendChild(where);
+      const txt = document.createElement('span');
+      txt.innerHTML = highlight(h.snippet, terms);
+      snip.appendChild(txt);
+      div.appendChild(snip);
+    }
+    return div;
+  }
+
+  input.addEventListener('input', debounce(apply, 160));
+  typeBtns.forEach((b) => b.addEventListener('click', apply));
+  credBtns.forEach((b) => b.addEventListener('click', apply));
+  draftsBtn?.addEventListener('click', apply);
+  window.addEventListener('popstate', () => {
+    readURL();
+    apply();
+  });
+
+  void init();
+</script>
