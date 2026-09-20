@@ -16,6 +16,10 @@ scripts/generate/.cache/
 # dev density mock (A2，不计入生产资源)
 public/timeline/mock-3000.json
 
+# geo build (B2)：raw 原始数据可由 scripts/geo/fetch-raw.mjs 重新下载；评估暂存区不入库
+scripts/geo/raw/
+.geo-tmp/
+
 # os / editor
 .DS_Store
 Thumbs.db

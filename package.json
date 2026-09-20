@@ -17,10 +17,13 @@
     "fixup": "tsx scripts/fixup.ts",
     "gen:eval": "tsx scripts/generate/eval.ts",
     "mock": "tsx scripts/dev/mock-3000.ts",
-    "bench": "tsx scripts/dev/timeline-bench.ts"
+    "bench": "tsx scripts/dev/timeline-bench.ts",
+    "geo:fetch": "node scripts/geo/fetch-raw.mjs",
+    "geo:build": "node scripts/geo/compose.mjs"
   },
   "dependencies": {
     "astro": "^5.13.0",
+    "d3-geo": "^3.1.1",
     "d3-scale": "^4.0.2",
     "d3-selection": "^3.0.0",
     "d3-transition": "^3.0.1",
@@ -30,13 +33,18 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.10",
+    "@types/d3-geo": "^3.1.1",
     "@types/d3-scale": "^4.0.9",
     "@types/d3-selection": "^3.0.12",
     "@types/d3-transition": "^3.0.9",
     "@types/d3-zoom": "^3.0.8",
     "@types/node": "^22.20.3",
     "dotenv": "^17.4.2",
+    "osmtogeojson": "^3.0.0-beta.5",
+    "polygon-clipping": "^0.15.7",
+    "topojson-client": "^3.1.0",
     "tsx": "^4.23.13",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "world-atlas": "^2.0.2"
   }
 }

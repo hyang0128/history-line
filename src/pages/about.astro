@@ -33,6 +33,16 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   </ul>
   <p>政治人物的读史批注归入转述类，并在展示时加「观点鲜明、存在争议」提示。</p>
 
+  <h2>疆域地图</h2>
+  <p>
+    <a href={`${base}/map`}>疆域图</a>的底图为 Natural Earth 50m 国家边界（public domain）。历史疆域几何来自真实地理数据：
+  </p>
+  <ul>
+    <li>汉、明、清：OpenHistoricalMap 历史边界关系（CC0），按关键时段取该时期的实测疆域轮廓；</li>
+    <li>秦、唐、元：以阿里云 DataV 省级行政边界（公开数据）并集为基础，参照史载界线（如北界阴山—长城、元岭北行省界）用相邻国家边界裁切合成，属<b>半示意</b>：海岸线真实，陆上界线为概括。</li>
+  </ul>
+  <p class="meta">历史疆域本身存在学术争议，本图仅供学习参照，不作主权与学术引用。城市点来自各节点 <code>location</code> 字段与内置历史地名-坐标词典的匹配，未收录地名不落点。</p>
+
   <h2>生成与审核流程</h2>
   <ol>
     <li>AI 按模板起草节点（概述、正史、野史、批注），输出记为 <span class="badge-draft">draft</span>。</li>

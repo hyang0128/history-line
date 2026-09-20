@@ -215,3 +215,58 @@
 - **未在真实 GitHub 仓库跑通流水线**（沙箱无法推送）。需用户：① Settings→Pages→Source 选「GitHub Actions」；② 推送 `main` 观察 Actions；③ 核对线上地址与 draft 排除。
 - 生产只剩 11 个 reviewed 节点，发布后可访问但内容很薄——与 C 系列审核进度直接相关（§11 主线程）。
 - 若未来仓库改名或迁到用户页站点，改 astro.config.mjs 默认值或依赖 Actions 自动计算即可。
+
+---
+
+## 2026-09-19 · B2 · 历史疆域地图（M6 一期，分支 `feat/map`）
+
+改动：
+- **数据**：`src/lib/map-data.ts` 自绘 6 个朝代（秦/西汉/唐/元/明/清）的示意边界多边形 + 南海诸岛示意点 + 60+ 历史地名词典（名称→坐标）与 `resolveLocations()`（解析节点 location 文本）。多边形按公开历史地图所载疆域概括勾勒、坐标粗略，附各朝示意时间点与注释；**不复制受版权数据**。
+- **地图组件**：`src/components/HistoryMap.astro`（岛）+ `src/components/history-map.ts`（D3 `geoMercator` + `geoPath` 渲染 SVG；6 朝色条切换、选中琥珀色、其余灰色对照；城市落点 hover 提示条数与地名；右键列表列出该朝节点；`?dyn=<id>` URL 深链；随 `hl-themechange` 换色。节点数据经 `<script type="application/json" set:html>` 嵌入，避免大 prop）。
+- **页面**：`/map` 页（说明 + 组件 + 范围免责）；头部导航加「疆域」链接；`about.astro` 增「疆域地图」数据来源与许可说明；`base.css` 地图样式。
+- **依赖**：新增 `d3-geo` + `@types/d3-geo`。
+
+决策（用户选定）：自绘示意图而非 CHGIS；D3 而非 MapLibre（离线零外部瓦片依赖）；首批 6 朝。
+
+自检：
+- `astro check` 0 错误；`npm run build` 50 页（含 /map）。
+- **浏览器实测（headless Edge，逐朝截图人工查看）**：初版地图两处硬伤——墨卡托在北纬 17–60° 跨度上把中原压扁、元朝 ring 写成自交双回路导致填充糊满画布。修复后重验：6 朝形状均可辨识（秦主体+象郡尾、汉河西走廊楔、唐西域尖角、元巨块、明奴儿干手臂、清最大范围）；点色条切换正常（唐→42 条列表、标题更新）、控制台无 JS 错误。
+- 数据自测：6 朝 polygon path 合法、顶点都在画布内；南海岛点可投影；location 解析符合预期。
+
+修复记录（同日第二轮）：
+- 投影改 `geoConicEqualArea`（标准纬线 25°/47°、中央经线 105°E），替代墨卡托。
+- 全部 ring 重写为单回路：共享 COAST 海岸线数组 + 各朝北缘/内陆收口，杜绝自交；渤海简化为浅湾。
+- 未选中朝代改仅描边（不填色）；选中朝代重心处标注朝代名。
+- Base 加 data-URI favicon（消 favicon 404）。
+
+遗留 / 待人工浏览器验证：
+- **用户复验**：请在浏览器刷新 /map 确认形状与交互（测试实例 http://127.0.0.1:4322/history-line/map，含 draft）。
+- 多边形为「示意」，边界细节（如唐北界、元西北）可按史识直接改 `map-data.ts` 的 ring。
+- 地名词典只覆盖常用城市；未收录地名不落点（进列表）。后续如需更精确，可接 CHGIS（凡例已留声明）。
+
+---
+
+## 2026-09-20 · B2 · 疆域地图重做：真实地理数据（分支 `feat/map`）
+
+用户反馈自绘多边形"是假的、图形明显不对"——手绘方案推翻，改用真实地理数据烘焙：
+
+数据管线（`scripts/geo/`，可复现，`npm run geo:fetch` + `npm run geo:build`）：
+- `fetch-raw.mjs`：下载原始数据到 `raw/`（gitignore，可重下）——DataV 中国省级边界、OHM 三朝边界（Overpass，**必须用 OHM 自己的端点** ohm.kumi.systems 等；overpass-api.de 是 OSM 的，关系 ID 两库不通，曾拿回布拉格公交站数据）、osmtogeojson 转 GeoJSON 落盘。asia-50m 缺失时从 node_modules/world-atlas（Natural Earth, public domain）提取。
+- `compose.mjs`：西汉/明/清 = OHM 实测边界（CC0，关系 2692874 / 2936889 / 2889977）；秦/唐/元 = DataV 省级并集 + Natural Earth 国家多边形按史载界线裁切（polygon-clipping）；统一 RDP 简化 + d3 球面渲染方向修正；输出 `public/geo/dynasties.json`（149KB）+ `base.json`（227KB）。
+- 复现验证：重跑 compose 产物与线上版本逐字节一致。
+- 许可：OHM CC0、Natural Earth public domain、DataV 公开接口；CHGIS 因 EULA 禁 PRC 用户使用+禁再分发，排除。
+
+站点改动：
+- `src/lib/map-data.ts`：几何移出（改 fetch public/geo/），保留类型、六朝元信息、地名词典、`resolveLocations`（签名改为接收 location 字符串，浏览器可用）。
+- `src/components/history-map.ts`：重写为 fetch 真实几何；等积圆锥投影（25°/47° 标准纬线）以六朝整体取景；底图（现代亚洲）+ 其他朝代虚线对照 + 选中朝代琥珀填充分层；数据加载失败有提示。
+- `HistoryMap.astro`/`map.astro`/凡例：色条改由 MAP_DYNASTIES 生成；说明与许可声明改为真实数据来源。
+- playwright-core 为浏览器实测依赖（devDeps 不入 dependencies）。
+
+自检（构建 + astro check + 数据文件逐朝核验）：
+- 生产构建 50 页；`astro check` 0 错误。
+- 截图逐朝目验：秦（含象郡）、汉（河西/交趾/乐浪）、唐（西域+漠北）、元（俄南+缅北）、明（1430–1617）、清（极盛）形状正确，海岸线为真实数据。
+- 交互：朝代切换（秦/元）、暗色主题、URL `?dyn=` 深链均验证通过（paths=59, circles 随朝代变化, 0 pageerror）。
+- dev 侧曾遇 `504 Outdated Optimize Dep`（旧 dev 进程缓存过期），重启 dev 解决——非站点 bug。
+
+遗留：
+- 秦/唐/元为"省级并集+裁切"合成，郡国级细节（如唐节度使界、元行省界）未画；OHM 有汉/明/清逐时段关系，后续可逐朝替换提高精度。

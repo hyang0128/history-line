@@ -1,0 +1,35 @@
+---
+import Base from '@/layouts/Base.astro';
+import HistoryMap from '@/components/HistoryMap.astro';
+import { getAllNodes, formatRange } from '@/lib/nodes';
+import type { MapNode } from '@/components/history-map';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const nodes = await getAllNodes();
+const mapNodes: MapNode[] = nodes.map((n) => ({
+  id: n.entry.data.id,
+  t: n.route as MapNode['t'],
+  title: n.entry.data.title,
+  date: formatRange(n.entry.data.date),
+  start: n.entry.data.date.start,
+  dyn: n.entry.data.dynasty,
+  loc: n.entry.data.location,
+}));
+const initial = Astro.url.searchParams.get('dyn') ?? undefined;
+---
+<Base title="历史疆域">
+  <h1>历史疆域</h1>
+  <p class="meta">
+    六个代表性朝代的示意边界。琥珀色为当前所选朝代，灰色为其他朝代范围对照；城市点为该朝代节点 <a href={`${base}/about`}>location</a> 出现的地名。
+    点击色条切换朝代，列表列出该朝代节点。
+  </p>
+
+  <HistoryMap nodes={mapNodes} initial={initial} client:load />
+
+  <h2>说明</h2>
+  <ul class="meta">
+    <li>底图为现代亚洲国界与海岸线（Natural Earth 50m，公有领域）。历史疆域基于<b>真实地理数据</b>绘制：汉、明、清取自 <a href="https://www.openhistoricalmap.org/" rel="noopener">OpenHistoricalMap</a> 实测边界（CC0）；秦、唐、元由现代省级边界（阿里云 DataV）与 Natural Earth 国界按史载界线裁切合成。海岸线真实，陆上界线为学术示意，不作学术引用。</li>
+    <li>各朝代取代表性时段（秦约前 210、西汉约前 100、唐约 750、元约 1290、明约 1500、清约 1760），虚实的取舍详见 <a href={`${base}/about`}>凡例</a>。</li>
+    <li>城市点来自各节点 frontmatter 的 location 字段与地图内置地名词典的匹配；未收录地名不落点、仅见列表。</li>
+  </ul>
+</Base>
