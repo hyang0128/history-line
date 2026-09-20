@@ -269,6 +269,36 @@ html[data-theme="dark"] mark { text-decoration-color: #ffb36b; }
   text-align: center; font-size: 13px; padding: 6px 12px;
 }
 
+/* ===== 历史疆域地图（B2）===== */
+.map-chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+.map-stage { position: relative; }
+.map-svg {
+  display: block; width: 100%; height: auto;
+  border: 1px solid var(--line); border-radius: 10px; background: var(--card);
+}
+.map-status {
+  position: absolute; left: 10px; top: 8px;
+  color: var(--muted); font-size: 12px;
+}
+.map-when { margin: 6px 0 2px; }
+.map-layout { margin-top: 6px; }
+.map-nodes {
+  list-style: none; margin: 0; padding: 0;
+  column-count: 2; column-gap: 28px;
+}
+.map-nodes li { padding: 2px 0; break-inside: avoid; }
+.map-nodes .empty { column-span: all; font-style: italic; }
+.map-hint { margin-top: 8px; }
+.map-tooltip {
+  position: fixed; z-index: 60;
+  background: var(--card); color: var(--fg);
+  border: 1px solid var(--line); border-radius: 6px; padding: 4px 10px;
+  font-size: 13px; pointer-events: none; box-shadow: 0 2px 10px rgba(0,0,0,.18);
+}
+@media (max-width: 600px) {
+  .map-nodes { column-count: 1; }
+}
+
 /* ===== 移动端适配（A3）===== */
 @media (max-width: 600px) {
   .site-header { flex-wrap: wrap; gap: 4px 8px; }

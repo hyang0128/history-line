@@ -1,0 +1,50 @@
+---
+/**
+ * 历史疆域地图岛屿（B2）。客户端用 D3 geo 渲染示意边界并联动节点列表。
+ * 数据经 <script type="application/json"> 嵌入，避免大对象经 props 序列化。
+ */
+import { MAP_DYNASTIES } from '@/lib/map-data';
+import type { MapNode } from './history-map';
+
+interface Props {
+  nodes: MapNode[];
+  initial?: string;
+}
+const { nodes, initial = '' } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+<figure class="map" data-map data-base={base} data-initial={initial}>
+  <script type="application/json" id="map-nodes" set:html={JSON.stringify(nodes)}></script>
+  <div class="map-chips" role="group" aria-label="选择朝代">
+    {MAP_DYNASTIES.map((f) => (
+      <button type="button" class="chip map-chip" data-dyn={f.id} title={f.when}>{f.title}</button>
+    ))}
+  </div>
+  <div class="map-stage">
+    <svg class="map-svg" viewBox="0 0 960 600" role="img" aria-label="历史疆域示意图：琥珀为所选朝代，灰色为其他朝代范围"></svg>
+    <div class="map-status"></div>
+  </div>
+  <div class="map-when meta"></div>
+  <div class="map-layout">
+    <ul class="map-nodes" aria-label="该朝代节点"></ul>
+    <p class="map-hint meta">城市点为该朝代节点 location 中出现且能在地名词典里解析出的地点，其余节点只进右侧列表。</p>
+  </div>
+  <div class="map-tooltip" role="tooltip" hidden></div>
+</figure>
+
+<script>
+  import { initHistoryMap, type MapNode } from './history-map';
+  const root = document.querySelector<HTMLElement>('[data-map]');
+  if (root) {
+    try {
+      const nodes = JSON.parse(document.getElementById('map-nodes')?.textContent ?? '[]') as MapNode[];
+      void initHistoryMap(root, {
+        base: root.dataset.base ?? '',
+        nodes,
+        initial: root.dataset.initial || undefined,
+      });
+    } catch (e) {
+      console.error('地图初始化失败', e);
+    }
+  }
+</script>
