@@ -29,7 +29,7 @@ import { loadCache, saveCache, appendRun, loadRuns, sha256, type CacheEntry, typ
 import { createProvider, isRetryable, type Provider, type ProviderResult } from './providers/index';
 import { parseFrontmatter } from '../lib/frontmatter';
 import { composeMarkdown, unwrapCodeFence } from '../lib/markdown';
-import { splitSections } from '../../src/lib/parse-blocks';
+import { splitSections, splitPreamble } from '../../src/lib/parse-blocks';
 import YAML from 'yaml';
 import { buildPrompt } from '../lib/prompt';
 import { nodeSchemaFor } from '../lib/frontmatter-schema';
@@ -246,8 +246,8 @@ async function generateOne(
     await saveFailed(entry.id, result.text, String((e as Error).message));
     const msg = (e as Error).message;
     return {
-      run: { at: new Date().toISOString(), id: entry.id, file: null, model: modelName, inputTokens: result.usage.inputTokens, outputTokens: result.usage.outputTokens, costCny: 0, ok: false, error: msg },
-      entry: { at: new Date().toISOString(), id: entry.id, file: null, model: modelName, inputTokens: result.usage.inputTokens, outputTokens: result.usage.outputTokens, costCny: 0, ok: false, promptHash: p.hash, error: msg },
+      run: { at: new Date().toISOString(), id: entry.id, file: null, model: modelName, inputTokens: result.usage.inputTokens, outputTokens: result.usage.outputTokens, costCny, ok: false, error: msg },
+      entry: { at: new Date().toISOString(), id: entry.id, file: null, model: modelName, inputTokens: result.usage.inputTokens, outputTokens: result.usage.outputTokens, costCny, ok: false, promptHash: p.hash, error: msg },
     };
   }
 
@@ -291,9 +291,17 @@ function repairYamlColons(raw: string): string {
 }
 
 /** 模型常在块 YAML 里写空值（如 `quote:` 空行 → null），parse-blocks 的 strict 校验不接受 null。
- * 写盘前对正史/野史/批注三个块做"null 清理 + 重序列化"，其余不变。 */
+ * 写盘前对正史/野史/批注三个块做"null 清理 + 重序列化"，其余不变。
+ * 重复二级标题会让 splitSections 的 Map 去重而丢块，导语不属四块规范——前者直接报错，后者丢弃并警告。 */
 function normalizeBodyBlocks(body: string): string {
-  const sections = splitSections(body);
+  const heads = [...body.matchAll(/^##[ \t]+(.+?)[ \t]*$/gm)].map((m) => m[1]);
+  const dupes = [...new Set(heads.filter((h, i) => heads.indexOf(h) !== i))];
+  if (dupes.length) {
+    throw new Error(`正文出现重复二级标题：${dupes.join('、')}（按标题去重会丢前块，须重新生成或手工修复）`);
+  }
+  const { preamble, rest } = splitPreamble(body);
+  if (preamble.trim()) warn(`正文在首个 ## 前有 ${preamble.trim().length} 字导语，不属四块规范，已丢弃`);
+  const sections = splitSections(rest);
   for (const h of ['正史', '野史', '批注'] as const) {
     const raw = sections.get(h) ?? '';
     if (!raw.trim()) continue;

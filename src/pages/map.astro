@@ -24,7 +24,7 @@ const initial = Astro.url.searchParams.get('dyn') ?? undefined;
     点击色条切换朝代，列表列出该朝代节点。
   </p>
 
-  <HistoryMap nodes={mapNodes} initial={initial} client:load />
+  <HistoryMap nodes={mapNodes} initial={initial} />
 
   <h2>说明</h2>
   <ul class="meta">

@@ -10,7 +10,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import osmtogeojson from 'osmtogeojson';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const RAW = path.join(here, 'raw');

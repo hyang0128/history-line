@@ -12,7 +12,6 @@ const index = JSON.parse(readFileSync(resolve(process.cwd(), 'public/timeline/mo
 const nodes = index.nodes;
 console.log(`载入 ${nodes.length} 个 mock 节点`);
 
-const LEVEL_ZOOMS = [1, 2, 4, 8, 16];
 let t0 = Infinity;
 let t1 = -Infinity;
 for (const n of nodes) {

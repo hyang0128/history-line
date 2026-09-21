@@ -88,7 +88,7 @@ async function main(): Promise<number> {
     s.calls += 1;
     s.in += r.inputTokens;
     s.out += r.outputTokens;
-    s.cost += r.ok ? r.costCny : 0;
+    s.cost += r.costCny; // 失败的调用同样已计费（provider 抛错时 usage 为 0，费用自然为 0）
     spend.set(r.model, s);
   }
   const totalCost = [...spend.values()].reduce((a, b) => a + b.cost, 0);

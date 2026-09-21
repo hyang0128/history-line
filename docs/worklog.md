@@ -270,3 +270,35 @@
 
 遗留：
 - 秦/唐/元为"省级并集+裁切"合成，郡国级细节（如唐节度使界、元行省界）未画；OHM 有汉/明/清逐时段关系，后续可逐朝替换提高精度。
+
+---
+
+## 2026-09-20 · 全站 bug 排查与修复（三批，main 工作树）
+
+排查方式：`astro check` / `validate` / 生产构建三道自动检查 + 代码审查（对时间轴/搜索/地图/管线逐文件），高严重度发现均经人工读码复核后修复。
+
+第一批（用户可见功能 bug）：
+- **H1 筛选 chips 点击失灵**：`FilterBar.astro` / `SearchUI.astro` 的点击 handler 只调 apply，而 apply 只读 `.on` class，无人切换 → 类型/可信度/含未审核按钮全部无效。修复：点击先 `classList.toggle('on')`（drafts 按钮同步 `aria-pressed`）再 apply；两处 drafts 按钮初始补 `on` class（与 `aria-pressed="true"` 及默认态一致）。
+- **M3 时间轴 k<1 漏复位**：`timeline.ts` setViewport 请求跨度宽于全轴时边界退回全幅但 `k` 仍 <1，整轴被压缩且低于 scaleExtent 下限（深链 `#t=-3000..3000` 可触发）。补 `k = 1`。
+- **M4 搜索词带中文标点整条落空**：`search.ts` tokens 只按空白切分，"李白，"整词失配且 AND 语义连坐。修复：token 剥首尾中英文标点并导出，`SearchUI` 高亮复用同一分词；`search-filter.ts` 标签分词支持顿号/逗号（占位符即写着「如 战争、科举」）。
+
+第二批（fixup 与内容标记）：
+- **fixup 判重 bug（隐藏较深）**：判重查 `includes('（AI收集）')`，匹配不到追加型标记「（AI收集，原书待核）」→ 每次运行都会给已标记 note 重复打标（历史上已产生 6 处双份标记）。改为按「（AI收集」前缀判重（覆盖空 note 文案与追加型两种形态）。
+- note 拼接标点：追加前剥尾部句读，杜绝「。；（AI收集…）」；存量 92 处一次性规整 + 6 处历史重复收敛（现 446 处标记、每 note 恰一份；`fixup --dry-run` 复跑为 0 待办，幂等）。
+- **M1 导语丢失**：`splitSections` 丢弃首个 `##` 前的内容，fixup/run.ts 按 sections 重建正文会静默删掉。新增 `parse-blocks.ts#splitPreamble`，fixup 原样保留导语。
+- **L1 trimOverview**：改按句末标点（。！？；）切句保留标点；无句界可切（首句超长/无句读）时返回原文，不再多补句号、不再虚报 trimmed。
+
+第三批（生成管线与杂项）：
+- **M2 重复二级标题丢块**：`run.ts#normalizeBodyBlocks` 写盘前检测重复 `##` 标题，命中即报错走失败路径（saveFailed 留档 + 记账），不再静默丢前块；导语丢弃改为显式 warn。
+- **M5② 费用低估**：`run.ts` finalizeFrontmatter 失败路径 `costCny: 0` → 记实际费用；`stats.ts` 不再跳过 `ok:false` 的费用合计。
+- L2：`filterFromParams` 用 `Object.hasOwn` 替代 `in`（`?type=constructor` 原型链误命中致 0 结果）。
+- L3：`history-map.ts` 校验 `initial`（dev 期来自 URL `?dyn=`，无效值曾致地图空白；线上静态构建本就无此问题）。
+- 移除 3 个页面上 Astro 组件的无效 `client:load`（构建警告消除，功能本由组件内 `<script>` 提供）；清理 3 处未用变量/导入（`LEVEL_ZOOMS`、`osmtogeojson` 死导入、`DynFeature`）；README 修正 `--strict` 措辞（CI 实跑宽松校验）。
+
+自检：
+- `astro check` 0 错误 0 警告 0 提示；生产构建 50 页、无水合警告；`validate` 0 错误；`stats` 正常。
+- splitPreamble / 重复标题检测 / tokens 分词均以 tsx 内联单测验证；content 净变化 71 文件 93 行（全部为标记标点规整，YAML 重序列化字节稳定）。
+
+遗留：
+- **浏览器实测未做**：playwright-core 实际未安装（package.json 无此项，B2 worklog 所记"devDeps"与现实不符）。建议用户复验：首页/搜索页点筛选 chips、搜「李白，」、深链 `#t=-3000..3000`。
+- models.yaml 单价仍为占位 0，`stats` 费用恒 ¥0 属配置占位；补价后失败调用的费用现已如实入账。

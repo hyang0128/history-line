@@ -57,7 +57,6 @@ interface DynProps {
   note?: string;
   source?: string;
 }
-type DynFeature = GeoJSON.Feature<GeoJSON.MultiPolygon, DynProps>;
 interface GeoBundle {
   base: GeoJSON.FeatureCollection;
   dyn: GeoJSON.FeatureCollection<GeoJSON.MultiPolygon, DynProps>;
@@ -67,7 +66,9 @@ export function initHistoryMap(root: HTMLElement, cfg: { base: string; nodes: Ma
   const nodes = cfg.nodes;
   const base = (cfg.base ?? '').replace(/\/$/, '');
   let bundle: GeoBundle | null = null;
-  let selected = cfg.initial ?? MAP_DYNASTIES[0]?.id ?? 'qin';
+  // initial（dev 期经 map.astro 来自 URL ?dyn=）可能是任意值：不校验会让 render() 找不到要素、地图空白
+  const initial = MAP_DYNASTIES.some((d) => d.id === cfg.initial) ? cfg.initial : undefined;
+  let selected = initial ?? MAP_DYNASTIES[0]?.id ?? 'qin';
 
   const statusEl = root.querySelector<HTMLElement>('.map-status');
   const whenEl = root.querySelector<HTMLElement>('.map-when');

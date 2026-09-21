@@ -31,7 +31,7 @@ export function defaultFilter(): FilterState {
 export function filterFromParams(p: URLSearchParams): FilterState {
   const types = (p.get('type') ?? '')
     .split(',')
-    .filter((t): t is 'event' | 'person' | 'topic' | 'world' => t in TYPE_LABELS);
+    .filter((t): t is 'event' | 'person' | 'topic' | 'world' => Object.hasOwn(TYPE_LABELS, t));
   const creds = (p.get('cred') ?? '')
     .toUpperCase()
     .split(',')

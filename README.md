@@ -67,7 +67,7 @@ npm run generate -- --only <id>       # 只生成指定节点
 npm run generate -- --limit 5 --yes   # 前 5 条、跳过费用确认
 npm run generate -- --model glm-4-flash # 换模型（只影响本次运行）
 npm run validate                      # 校验 content/：缺 source / 缺 credibility / 非公版引原文 一律报错
-npm run validate -- --strict          # 警告也计为失败（CI 用）
+npm run validate -- --strict          # 警告也计为失败（本地从严自检；CI 跑宽松校验——unknown-related 属允许性警告）
 npm run review                        # 审核辅助：抽取全部出处/引文/待核标记，生成核对清单
 npm run fixup                         # draft 发布前清理：近现代批注加（AI收集）标记、概述超长截短
 npm run stats                         # 内容分布、draft 积压、累计生成费用

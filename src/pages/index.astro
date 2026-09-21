@@ -36,7 +36,7 @@ function nodesOf(list: NodeView[], dynastyId?: string) {
   {nodes.length > 0 && <Timeline />}
 
   <h2>节点目录</h2>
-  <FilterBar tags={allTags} total={nodes.length} client:load />
+  <FilterBar tags={allTags} total={nodes.length} />
   <div id="directory">
     {eras.map((era) => {
       const list = byEra.get(era.id) ?? [];

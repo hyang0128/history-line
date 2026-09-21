@@ -1,6 +1,6 @@
 ---
 /**
- * 首页"节点目录"的筛选栏（A3）。只在前台岛（client:load）使用。
+ * 首页"节点目录"的筛选栏（A3）。浏览器端交互由组件内 <script> 提供（Astro 组件不水合，无需 client: 指令）。
  * 通过 li[data-*] 过滤预渲染的目录；状态写入 URL 搜索参数，支持前进后退。
  */
 import { TYPE_LABELS, CRED_LABELS } from '@/lib/search-filter';
