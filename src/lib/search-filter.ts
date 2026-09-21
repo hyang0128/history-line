@@ -16,7 +16,7 @@ export interface FilterState {
   types: string[];
   /** 空数组 = 全部可信度 */
   creds: string[];
-  /** 空格分词，全部命中才通过；空 = 不过滤 */
+  /** 空格/顿号分词，全部命中才通过；空 = 不过滤 */
   tag: string;
   /** true = 包含 status=draft */
   drafts: boolean;
@@ -76,7 +76,8 @@ export function matches(st: FilterState, n: Filterable): boolean {
   if (st.types.length && !st.types.includes(n.type)) return false;
   if (st.creds.length && !st.creds.some((c) => n.creds.includes(c))) return false;
   if (st.tag) {
-    const terms = st.tag.toLowerCase().split(/\s+/).filter(Boolean);
+    // 空格/顿号/逗号分词（占位符即写着「如 战争、科举」），全部命中才通过
+    const terms = st.tag.toLowerCase().split(/[\s，、,；;]+/).filter(Boolean);
     const hay = `${n.title} ${n.tags} ${n.text ?? ''}`.toLowerCase();
     if (terms.some((t) => !hay.includes(t))) return false;
   }

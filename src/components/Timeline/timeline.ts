@@ -264,6 +264,7 @@ function setViewport(st: State, a: number, b: number, animate: boolean): void {
   if (bx - ax < MIN_SPAN_YEARS) bx = ax + MIN_SPAN_YEARS;
   let k = st.len / (bx - ax);
   if (k < 1) {
+    k = 1; // 请求跨度比全轴还宽：退回全幅。k 必须一并复位，否则低于 scaleExtent 下限、整轴被压扁
     ax = st.t0;
     bx = st.t1;
   } else if (k > st.maxK) {

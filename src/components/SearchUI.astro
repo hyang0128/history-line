@@ -31,7 +31,7 @@ const indexUrl = `${base}/search/index.json`;
       ))}
     </span>
     <span class="filter-group">
-      <button type="button" class="chip" id="sf-drafts" aria-pressed="true">含未审核</button>
+      <button type="button" class="chip on" id="sf-drafts" aria-pressed="true">含未审核</button>
     </span>
     <span class="search-tag">
       <b id="sui-count">0</b> 条结果 · <span id="sui-ms">0</span> ms
@@ -42,7 +42,7 @@ const indexUrl = `${base}/search/index.json`;
 
 <script>
   import { filterFromParams, filterToQuery, matches, TYPE_LABELS as _TYPES } from '../lib/search-filter';
-  import { search, highlight, type Hit, type SearchEntry } from './search';
+  import { search, highlight, tokens, type Hit, type SearchEntry } from './search';
 
   const root = document.querySelector<HTMLElement>('[data-sui]');
   if (!root) throw new Error('搜索挂载点缺失');
@@ -138,7 +138,7 @@ const indexUrl = `${base}/search/index.json`;
       resultsEl.textContent = '没有匹配的节点。换个关键词或调整筛选？';
       return;
     }
-    const terms = q ? q.toLowerCase().split(/\s+/).filter(Boolean) : [];
+    const terms = tokens(q);
     const show = hits.slice(0, 200);
     const frag = document.createDocumentFragment();
     for (const h of show) frag.appendChild(renderHit(h, terms));
@@ -192,9 +192,15 @@ const indexUrl = `${base}/search/index.json`;
   }
 
   input.addEventListener('input', debounce(apply, 160));
-  typeBtns.forEach((b) => b.addEventListener('click', apply));
-  credBtns.forEach((b) => b.addEventListener('click', apply));
-  draftsBtn?.addEventListener('click', apply);
+  // 点击 chip 必须先切换 .on 再 apply——apply/readChips 只读不写，不切换则筛选永远无效
+  typeBtns.forEach((b) => b.addEventListener('click', () => { b.classList.toggle('on'); apply(); }));
+  credBtns.forEach((b) => b.addEventListener('click', () => { b.classList.toggle('on'); apply(); }));
+  draftsBtn?.addEventListener('click', () => {
+    if (!draftsBtn) return;
+    const on = draftsBtn.classList.toggle('on');
+    draftsBtn.setAttribute('aria-pressed', String(on));
+    apply();
+  });
   window.addEventListener('popstate', () => {
     readURL();
     apply();

@@ -35,10 +35,16 @@ const W: Record<string, number> = {
   c: 13,
 };
 
-function tokens(q: string): string[] {
+/** token 首尾的中英文标点（中文输入法跟出的句读会让整词失配，须剥掉） */
+const EDGE_PUNCT =
+  /^[，。、；：？！…—·“”‘’「」『』（）《》【】,.:;!?()[\]"']+|[，。、；：？！…—·“”‘’「」『』（）《》【】,.:;!?()[\]"']+$/g;
+
+/** 分词：按空白切开后剥掉 token 首尾标点。 */
+export function tokens(q: string): string[] {
   return q
     .toLowerCase()
     .split(/\s+/)
+    .map((t) => t.replace(EDGE_PUNCT, ''))
     .filter((t) => t.length > 0);
 }
 

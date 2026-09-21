@@ -32,7 +32,7 @@ const allTags = Array.from(new Set(tags)).sort();
     </datalist>
   </span>
   <span class="filter-group">
-    <button type="button" class="chip" id="fb-drafts" aria-pressed="true">含未审核</button>
+    <button type="button" class="chip on" id="fb-drafts" aria-pressed="true">含未审核</button>
   </span>
   <span class="search-tag">显示 <b id="fb-count">{total}</b> / {total} 个节点</span>
 </div>
@@ -100,9 +100,15 @@ const allTags = Array.from(new Set(tags)).sort();
     };
   };
 
-  typeBtns.forEach((b) => b.addEventListener('click', applyFilter));
-  credBtns.forEach((b) => b.addEventListener('click', applyFilter));
-  draftsBtn?.addEventListener('click', applyFilter);
+  // 点击 chip 必须先切换 .on 再 applyFilter——applyFilter/readState 只读不写，不切换则筛选永远无效
+  typeBtns.forEach((b) => b.addEventListener('click', () => { b.classList.toggle('on'); applyFilter(); }));
+  credBtns.forEach((b) => b.addEventListener('click', () => { b.classList.toggle('on'); applyFilter(); }));
+  draftsBtn?.addEventListener('click', () => {
+    if (!draftsBtn) return;
+    const on = draftsBtn.classList.toggle('on');
+    draftsBtn.setAttribute('aria-pressed', String(on));
+    applyFilter();
+  });
   tagInput?.addEventListener('input', debounce(applyFilter, 200));
 
   // 首次进入：按 URL 恢复筛选状态，并应用
