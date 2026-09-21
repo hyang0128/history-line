@@ -39,7 +39,10 @@ jobs:
       # 生产构建：只发布 reviewed / published（src/lib/publish.ts 未设 PUBLISH_ONLY）
       - name: Build
         run: npm run build
+      # enablement: 仓库尚未开启 Pages 时自动通过 API 开启（Settings→Pages→Source: GitHub Actions）
       - uses: actions/configure-pages@v5
+        with:
+          enablement: true
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
