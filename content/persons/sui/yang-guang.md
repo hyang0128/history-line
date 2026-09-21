@@ -21,8 +21,7 @@ tags:
 location: 长安、洛阳、江都、涿郡
 related:
   - yang-jian
-  - li-shi-min
-  - sui-dynasty
+  - li-shimin
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: person

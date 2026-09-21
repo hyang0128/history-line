@@ -21,7 +21,7 @@ tags:
 location: 浙江、江西、应天试行，后推行全国
 related:
   - zhang-ju-zheng
-  - liang-shui-fa
+  - liangshui-fa
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: topic

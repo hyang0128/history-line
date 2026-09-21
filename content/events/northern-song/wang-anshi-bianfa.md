@@ -22,7 +22,7 @@ location: 东京开封府及全国各路
 related:
   - wang-anshi
   - song-shenzong
-  - sima-guang
+  - si-ma-guang
   - yuanyou-geng-hua
 status: draft
 generated_by: deepseek-v4-flash[1M]

@@ -21,9 +21,8 @@ tags:
   - 烛影斧声
 location: 洛阳、开封、陈桥驿
 related:
-  - chenqiao-mutiny
-  - zhao-guangyi
-  - zhao-pu
+  - chenqiao-bingbian
+  - song-taizong
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: person

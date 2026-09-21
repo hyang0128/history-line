@@ -19,8 +19,6 @@ tags:
   - 诗人
 location: 浔阳柴桑
 related:
-  - tao-kan
-  - xie-lingyun
   - su-shi
 status: draft
 generated_by: deepseek-v4-flash[1M]

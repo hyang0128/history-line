@@ -24,8 +24,7 @@ location: 北京、江南
 related:
   - kangxi
   - yongzheng
-  - heshen
-  - si-ku-quan-shu
+  - he-shen
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: person

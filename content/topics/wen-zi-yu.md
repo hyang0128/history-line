@@ -19,11 +19,9 @@ tags:
   - 满汉关系
 location: 全国，重点在江浙
 related:
-  - kangxi-emperor
-  - yongzheng-emperor
-  - qianlong-emperor
-  - siku-quanshu
-  - kaozheng-xue
+  - kangxi
+  - yongzheng
+  - qianlong
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: topic

@@ -23,7 +23,7 @@ location: 谯县、洛阳、许都、邺城
 related:
   - guandu-battle
   - chibi-battle
-  - dong-zhuo-zhiluan
+  - dongzhuo-disorder
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: person

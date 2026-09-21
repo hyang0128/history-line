@@ -20,10 +20,7 @@ tags:
   - 朱元璋
 location: 颍州、亳州、濠州、汴梁、集庆
 related:
-  - han-shantong
-  - liu-futong
-  - hanlin-er
-  - zhuyuanzhang
+  - zhu-yuanzhang
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: event

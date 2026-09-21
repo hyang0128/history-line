@@ -20,9 +20,8 @@ tags:
   - 出土文献
 location: 楚国苦县厉乡曲仁里（今河南鹿邑一带）
 related:
-  - kongzi
-  - zhuangzi
-  - daodejing
+  - confucius
+  - zhuang-zi
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: person

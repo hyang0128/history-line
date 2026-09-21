@@ -19,10 +19,7 @@ tags:
   - 民变
 location: 辽东城、辽水、萨水、鸭绿水、平壤
 related:
-  - sui-yangdi
-  - goguryeo-kingdom
-  - yang-xuangan-rebellion
-  - wang-bo-rebellion
+  - yang-guang
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: event

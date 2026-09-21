@@ -21,12 +21,9 @@ tags:
 location: 上蔡、咸阳
 related:
   - qin-shi-huang
-  - zhao-gao
-  - hu-hai
-  - xunzi
+  - xun-kuang
   - han-fei
-  - centralization
-  - great-wall
+  - qin-great-wall
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: person

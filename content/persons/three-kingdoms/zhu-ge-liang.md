@@ -22,9 +22,7 @@ tags:
 location: 隆中、成都、汉中、祁山、五丈原
 related:
   - liu-bei
-  - liu-shan
   - sima-yi
-  - longzhong-dui
   - chibi-battle
 status: draft
 generated_by: deepseek-v4-flash[1M]

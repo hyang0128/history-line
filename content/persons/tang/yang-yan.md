@@ -21,9 +21,6 @@ tags:
 location: 凤翔天兴（今陕西凤翔）
 related:
   - liangshui-fa
-  - liu-yan
-  - lu-zhi
-  - dezong
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: person

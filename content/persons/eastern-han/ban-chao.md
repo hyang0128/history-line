@@ -20,11 +20,8 @@ tags:
 location: 西域、鄯善、于阗、疏勒、龟兹
 related:
   - ban-gu
-  - ban-biao
   - dou-gu
   - zhang-qian
-  - west-regions-protectorate
-  - ban-yong
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: person

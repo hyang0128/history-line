@@ -22,7 +22,6 @@ location: 咸阳
 related:
   - qin-shi-huang
   - li-si
-  - fu-su
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: event

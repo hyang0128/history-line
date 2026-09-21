@@ -23,10 +23,8 @@ tags:
   - 文化
 location: 建康（今江苏南京）、襄阳、同泰寺
 related:
-  - hou-jing
   - houjing-rebellion
   - chen-baxian
-  - xiao-baojuan
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: person

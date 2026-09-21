@@ -19,9 +19,8 @@ tags:
   - 圆明园
 location: 广州、大沽、天津、北京、圆明园
 related:
-  - first-opium-war
+  - opium-war
   - taiping-rebellion
-  - zongli-yamen
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: event

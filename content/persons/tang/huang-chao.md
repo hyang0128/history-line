@@ -19,7 +19,6 @@ tags:
   - 农民战争
 location: 曹州冤句、长安、泰山狼虎谷
 related:
-  - tang-xizong
   - wang-xianzhi
   - zhu-wen
   - li-keyong

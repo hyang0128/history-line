@@ -18,10 +18,9 @@ tags:
   - 显学
 location: 宋（今河南商丘一带），一说鲁
 related:
-  - kong-qiu
-  - meng-ke
-  - zhuang-zhou
-  - yang-zhu
+  - confucius
+  - meng-zi
+  - zhuang-zi
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: person

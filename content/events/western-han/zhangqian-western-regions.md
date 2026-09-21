@@ -21,7 +21,6 @@ tags:
 location: 长安、河西走廊、大宛、大月氏、乌孙
 related:
   - han-wudi
-  - xiongnu
   - silk-road
 status: draft
 generated_by: deepseek-v4-flash[1M]

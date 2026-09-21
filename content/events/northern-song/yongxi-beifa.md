@@ -21,9 +21,7 @@ tags:
 location: 河北、山西北部（岐沟关、陈家谷）
 related:
   - song-taizong
-  - yang-ye
-  - gaolianghe-zhi-zhan
-  - chanyuan-zhi-meng
+  - chanyuan-zhimeng
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: event

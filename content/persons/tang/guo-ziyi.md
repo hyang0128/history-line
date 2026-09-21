@@ -21,9 +21,6 @@ tags:
 location: 华州郑县、长安
 related:
   - an-lushan-rebellion
-  - li-guangbi
-  - tang-suzong
-  - tang-daizong
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: person

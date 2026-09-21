@@ -19,9 +19,7 @@ tags:
   - 汉化
 location: 略阳临渭、长安、淝水
 related:
-  - qian-qin
-  - wang-meng
-  - feishui-zhi-zhan
+  - feishui-battle
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: person

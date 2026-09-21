@@ -20,9 +20,9 @@ tags:
   - 大迁徙
 location: 中原、关中、河西走廊、河北
 related:
-  - bawang-zhi-luan
-  - feishui-zhi-zhan
-  - bewei-xiaowen-gaige
+  - ba-wang-zhi-luan
+  - feishui-battle
+  - xiaowen-reform
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: topic

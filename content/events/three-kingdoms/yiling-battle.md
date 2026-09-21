@@ -23,7 +23,7 @@ related:
   - lu-xun
   - sun-quan
   - guan-yu
-  - chi-bi-battle
+  - chibi-battle
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: event

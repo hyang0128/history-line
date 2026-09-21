@@ -22,10 +22,7 @@ tags:
 location: 澎湖、台湾、福建铜山
 related:
   - zheng-chenggong
-  - zheng-jing
-  - shi-lang
-  - kangxi-emperor
-  - sanfan-rebellion
+  - kangxi
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: event

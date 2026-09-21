@@ -21,7 +21,6 @@ tags:
 location: 北京紫禁城隆宗门内
 related:
   - yongzheng
-  - zhangtingyu
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: event

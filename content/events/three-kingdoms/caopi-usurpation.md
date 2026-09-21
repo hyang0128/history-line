@@ -19,11 +19,10 @@ tags:
   - 东汉
 location: 许都、繁阳、洛阳
 related:
-  - caocao
+  - cao-cao
   - caopi
-  - han-xiandi
-  - liubei
-  - sunquan
+  - liu-bei
+  - sun-quan
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: event

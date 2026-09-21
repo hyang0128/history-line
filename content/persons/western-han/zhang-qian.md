@@ -19,9 +19,7 @@ tags:
 location: 汉中、长安、陇西、大宛、康居、大月氏、乌孙
 related:
   - han-wudi
-  - xiongnu
   - silk-road
-  - dayuan
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: person

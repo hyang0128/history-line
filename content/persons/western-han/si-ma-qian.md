@@ -19,8 +19,6 @@ tags:
 location: 夏阳（今陕西韩城）、长安
 related:
   - han-wudi
-  - li-ling
-  - shiji
   - ban-gu
 status: draft
 generated_by: deepseek-v4-flash[1M]

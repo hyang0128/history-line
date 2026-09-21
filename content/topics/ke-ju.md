@@ -18,9 +18,7 @@ tags:
   - 进士
   - 人才
 location: 长安、洛阳
-related:
-  - sui-dynasty
-  - tang-dynasty
+related: []
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: topic

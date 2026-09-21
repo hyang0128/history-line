@@ -21,10 +21,9 @@ tags:
 location: 陈桥驿、开封
 related:
   - zhao-kuangyin
-  - houzhou-shizong
-  - bei-song-jianli
-  - bei-song-tongyi
-  - wudai-shiguo
+  - chai-rong
+  - song-unify-south
+  - wu-dai-shi-guo
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: event

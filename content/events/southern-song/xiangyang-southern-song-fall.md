@@ -21,10 +21,8 @@ tags:
   - 江防
 location: 襄阳、樊城、临安、崖山
 related:
-  - wen-tianxiang
-  - jia-sidao
-  - boyan
-  - kublai-khan
+  - wen-tian-xiang
+  - kublai
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: event

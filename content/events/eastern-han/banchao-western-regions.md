@@ -22,8 +22,6 @@ related:
   - ban-gu
   - dou-gu
   - zhang-qian
-  - gan-ying
-  - han-mingdi
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: event

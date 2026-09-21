@@ -21,7 +21,7 @@ related:
   - li-shimin
   - du-ruhui
   - wei-zheng
-  - zhen-guan-zhi-zhi
+  - zhenguan-reign
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: person

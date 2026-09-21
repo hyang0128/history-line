@@ -19,8 +19,6 @@ tags:
 location: 长平（今山西高平西北）
 related:
   - bai-qi
-  - zhao-kuo
-  - lian-po
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: event

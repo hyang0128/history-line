@@ -21,8 +21,8 @@ location: 京兆杜陵（今陕西西安东南）；滏阳（今河北磁县）
 related:
   - li-shimin
   - fang-xuanling
-  - zhen-guan-zhi-zhi
-  - xuanwumen-incident
+  - zhenguan-reign
+  - xuanwu-gate-incident
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: person

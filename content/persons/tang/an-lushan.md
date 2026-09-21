@@ -21,8 +21,6 @@ location: 营州、范阳、洛阳
 related:
   - an-lushan-rebellion
   - li-longji
-  - yang-guifei
-  - li-linfu
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: person

@@ -21,11 +21,8 @@ tags:
   - 南朝
 location: 寿阳、建康、江陵
 related:
-  - houjing
-  - liang-wudi
+  - xiao-yan
   - chen-baxian
-  - wang-sengbian
-  - jiankang
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: event

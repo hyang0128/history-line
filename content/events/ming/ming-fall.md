@@ -18,7 +18,7 @@ tags:
   - 都城陷落
 location: 北京、西安、山海关
 related:
-  - li-zicheng
+  - li-zi-cheng
   - zhu-youjian
   - wu-sangui
 status: draft

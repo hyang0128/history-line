@@ -19,10 +19,7 @@ tags:
   - 春秋
 location: 临淄（齐）、葵丘
 related:
-  - guanzhong
-  - qihuangong
-  - baoshuxia
-  - kuiqui-alliance
+  - guan-zhong
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: event

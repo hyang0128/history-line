@@ -21,7 +21,6 @@ location: 临安、中都、淮河—大散关
 related:
   - yue-fei
   - qin-hui
-  - hailing-nanqin
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: event

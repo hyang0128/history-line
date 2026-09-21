@@ -21,10 +21,8 @@ tags:
   - 海洋
 location: 云南昆阳、南京、泉州、古里、忽鲁谟斯、木骨都束
 related:
-  - yongle-emperor
-  - ming-xuanzong
+  - zhu-di
   - jingnan-campaign
-  - ma-huan
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: person

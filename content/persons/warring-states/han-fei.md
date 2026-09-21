@@ -22,10 +22,8 @@ tags:
 location: 韩国新郑（今河南新郑）、秦咸阳（今陕西咸阳）
 related:
   - li-si
-  - xunzi
+  - xun-kuang
   - shang-yang
-  - shen-bu-hai
-  - shen-dao
   - qin-shi-huang
 status: draft
 generated_by: deepseek-v4-flash[1M]

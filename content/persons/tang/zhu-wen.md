@@ -21,10 +21,9 @@ tags:
   - 黄巢起义
 location: 汴州、洛阳、开封
 related:
-  - huang-cho
-  - tang-zhaozong
-  - li-ke-yong
-  - zhu-yougui
+  - huang-chao
+  - li-ye
+  - li-keyong
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: person

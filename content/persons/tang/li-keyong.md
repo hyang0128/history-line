@@ -23,7 +23,7 @@ tags:
   - 黄巢之乱
 location: 河东、代北、太原、长安
 related:
-  - huang-chao-rebellion
+  - huang-chao-uprising
   - zhu-wen
   - li-cunxu
 status: draft

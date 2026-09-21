@@ -20,9 +20,8 @@ tags:
   - 藩镇
 location: 河东闻喜（今山西闻喜）、长安、淮西
 related:
-  - yuanhe-zhongxing
-  - tang-xianzong
-  - wu-yuanji
+  - yuanhe-restoration
+  - li-chun
   - li-su
 status: draft
 generated_by: deepseek-v4-flash[1M]

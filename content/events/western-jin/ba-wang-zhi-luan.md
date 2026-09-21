@@ -17,7 +17,7 @@ tags:
   - 转折点
 location: 洛阳、长安、邺、许昌
 related:
-  - yong-jia-zhi-luan
+  - yongjia-disaster
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: event

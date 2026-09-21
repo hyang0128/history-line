@@ -23,8 +23,7 @@ location: 广西、湖南、湖北、江西、安徽、江苏等省，都城设�
 related:
   - hong-xiuquan
   - zeng-guofan
-  - lihongzhang
-  - xianfeng-emperor
+  - li-hongzhang
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: event

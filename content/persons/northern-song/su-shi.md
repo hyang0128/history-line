@@ -23,10 +23,7 @@ tags:
 location: 眉山、汴京、杭州、黄州、惠州、儋州
 related:
   - ouyang-xiu
-  - wang-an-shi
-  - su-xun
-  - su-zhe
-  - wutai-shi-an
+  - wang-anshi
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: person

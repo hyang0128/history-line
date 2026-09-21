@@ -19,9 +19,8 @@ tags:
   - 玄武门之变
 location: 陇西成纪（今甘肃秦安）→ 长安
 related:
-  - li-shi-min
-  - sui-yangdi
-  - tang-gong-ling
+  - li-shimin
+  - yang-guang
   - xuanwu-gate-incident
 status: draft
 generated_by: deepseek-v4-flash[1M]

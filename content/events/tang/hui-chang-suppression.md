@@ -21,7 +21,7 @@ tags:
 location: 全国
 related:
   - tang-wuzong
-  - tang-xuanzong
+  - li-longji
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: event

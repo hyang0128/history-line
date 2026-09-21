@@ -21,10 +21,8 @@ tags:
   - 边疆防御
 location: 苏州吴县、汴京、延州、邓州
 related:
-  - qingli-reform
-  - wanganshi-bianfa
-  - song-xixia-war
-  - yueyang-lou
+  - qingli-xinzheng
+  - wang-anshi-bianfa
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: person

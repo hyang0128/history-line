@@ -22,10 +22,6 @@ location: 京师（北京）、南京
 related:
   - zhu-yuanzhang
   - zhu-di
-  - liu-jin
-  - wei-zhongxian
-  - jin-yi-wei
-  - dong-chang
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: topic

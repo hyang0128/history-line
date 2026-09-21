@@ -21,15 +21,11 @@ tags:
   - 江南开发
 location: 江东、建业、武昌
 related:
-  - sun-jian
-  - sun-ce
-  - zhou-yu
-  - lu-meng
   - lu-xun
   - liu-bei
   - cao-cao
-  - chi-bi-battle
-  - yi-ling-battle
+  - chibi-battle
+  - yiling-battle
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: person

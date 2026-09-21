@@ -26,8 +26,7 @@ location: 金陵（今江苏南京）、汴京（今河南开封）
 related:
   - li-jing
   - zhao-kuangyin
-  - zhao-guangyi
-  - nan-tang
+  - song-taizong
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: person

@@ -21,8 +21,8 @@ tags:
 location: 北京（顺天府）、南京
 related:
   - jingnan-campaign
-  - yongle-emperor
-  - tumu-crisis
+  - zhu-di
+  - tumu-incident
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: event

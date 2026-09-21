@@ -20,8 +20,8 @@ location: 北京（紫禁城、南宫）
 related:
   - tumu-incident
   - yu-qian
-  - ming-yingzong
-  - jingtai-emperor
+  - zhu-qizhen
+  - zhu-qiyu
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: event

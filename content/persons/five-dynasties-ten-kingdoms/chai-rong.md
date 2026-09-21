@@ -20,7 +20,6 @@ tags:
   - 陈桥兵变
 location: 开封、高平、淮南、瓦桥关
 related:
-  - hou-zhou
   - zhao-kuangyin
   - chenqiao-bingbian
 status: draft

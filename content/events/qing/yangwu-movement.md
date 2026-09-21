@@ -21,11 +21,9 @@ tags:
   - 改革
 location: 北京、上海、天津、安庆、福州
 related:
-  - zongli-yamen
   - li-hongzhang
   - zeng-guofan
-  - beiyang-fleet
-  - first-sino-japanese-war
+  - sino-japanese-war
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: event

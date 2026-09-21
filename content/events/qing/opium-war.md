@@ -20,9 +20,7 @@ tags:
   - 转折点
 location: 广东、福建、浙江、江苏、直隶沿海
 related:
-  - lin-zexu
-  - humen-opium-destruction
-  - treaty-of-nanjing
+  - lin-ze-xu
   - second-opium-war
 status: draft
 generated_by: deepseek-v4-flash[1M]

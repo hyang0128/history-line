@@ -21,8 +21,7 @@ tags:
 location: 盛京、松山、锦州
 related:
   - nurhaci
-  - duorgon
-  - hong-chengchou
+  - dorgon
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: person

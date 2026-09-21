@@ -23,7 +23,7 @@ location: 东京开封府、河北、淮南
 related:
   - chai-rong
   - zhao-kuangyin
-  - chenqiao-mutiny
+  - chenqiao-bingbian
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: event

@@ -24,7 +24,7 @@ tags:
 location: 抚州临川、汴京、江宁
 related:
   - song-shenzong
-  - sima-guang
+  - si-ma-guang
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: person

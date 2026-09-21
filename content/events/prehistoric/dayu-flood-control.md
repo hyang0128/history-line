@@ -20,10 +20,8 @@ tags:
   - 华夏起源
 location: 黄河中下游（今豫、冀、晋、鲁一带）
 related:
-  - yu-the-great
-  - xia-dynasty
+  - yu
   - shun
-  - gun
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: event

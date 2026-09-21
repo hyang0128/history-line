@@ -21,7 +21,6 @@ tags:
 location: 北京
 related:
   - qianlong
-  - jiaqing
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: person

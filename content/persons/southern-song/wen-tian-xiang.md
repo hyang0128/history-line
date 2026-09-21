@@ -22,10 +22,7 @@ tags:
   - 抗元
   - 就义
 location: 吉州庐陵（今江西吉安）、临安、大都（今北京）
-related:
-  - southern-song
-  - yashan-battle
-  - mongol-yuan-war
+related: []
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: person

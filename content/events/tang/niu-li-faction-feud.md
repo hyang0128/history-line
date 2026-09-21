@@ -18,12 +18,9 @@ tags:
   - 晚唐
 location: 长安
 related:
-  - niu-sengru
-  - li-zongmin
-  - li-de-yu
-  - tang-wenzong
+  - li-ang
   - tang-wuzong
-  - tang-xuanzong
+  - li-longji
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: event

@@ -22,7 +22,6 @@ location: 北平、真定、白沟河、济南、东昌、灵璧、南京
 related:
   - zhu-di
   - zhu-yunwen
-  - fang-xiaoru
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: event

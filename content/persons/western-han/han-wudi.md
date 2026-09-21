@@ -22,7 +22,6 @@ tags:
 location: 长安
 related:
   - zhang-qian
-  - wei-qing
   - huo-qubing
   - si-ma-qian
   - dong-zhongshu

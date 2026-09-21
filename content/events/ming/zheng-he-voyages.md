@@ -19,10 +19,8 @@ tags:
   - 明代海禁
 location: 太仓刘家港、长乐、占城、满剌加、古里、忽鲁谟斯、东非沿岸
 related:
-  - ming-chengzu
+  - zhu-di
   - jingnan-campaign
-  - haijin
-  - maritime-trade
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: event

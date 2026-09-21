@@ -20,10 +20,7 @@ tags:
   - 四大汗国
 location: 花剌子模、河中、波斯、钦察草原、斡罗思、波兰、匈牙利、叙利亚
 related:
-  - genghis-khan
-  - yuan-dynasty
-  - golden-horde
-  - ilkhanate
+  - chengji-si-han
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: world

@@ -22,11 +22,8 @@ tags:
   - 东汉灭亡
 location: 洛阳、长安、关东州郡
 related:
-  - he-jin
   - cao-cao
-  - lv-bu
-  - wang-yun
-  - yellow-turban-rebellion
+  - huangjin-uprising
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: event

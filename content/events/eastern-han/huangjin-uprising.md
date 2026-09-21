@@ -19,11 +19,7 @@ tags:
   - 东汉
 location: 冀州、颍川、南阳、八州之地
 related:
-  - zhang-jiao
-  - dong-zhuo
-  - han-lingdi
-  - taiping-dao
-  - eastern-han-downfall
+  - dongzhuo-disorder
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: event

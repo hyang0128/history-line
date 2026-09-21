@@ -19,9 +19,7 @@ tags:
   - 商周之际
 location: 牧野（今河南新乡市卫辉市一带）
 related:
-  - shang-zhouwang
   - zhou-wuwang
-  - muye-battle
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: event

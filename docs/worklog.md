@@ -302,3 +302,20 @@
 遗留：
 - **浏览器实测未做**：playwright-core 实际未安装（package.json 无此项，B2 worklog 所记"devDeps"与现实不符）。建议用户复验：首页/搜索页点筛选 chips、搜「李白，」、深链 `#t=-3000..3000`。
 - models.yaml 单价仍为占位 0，`stats` 费用恒 ¥0 属配置占位；补价后失败调用的费用现已如实入账。
+
+## 2026-09-21 · related 引用批量订正（main 工作树）
+
+背景：validate 报 401 条 unknown-related 警告。工具：`scripts/dev/fix-related.ts`（analyze/apply 两模式，frontmatter 行级编辑）+ `scripts/dev/related-map.json`（决策表，可审计）。
+
+处理（352 个 distinct 缺失 id 全部分类）：
+- **改名 101 项**：连字符风格错位（li-shi-min→li-shimin、caocao→cao-cao 等 40+）、庙号→实际人物节点（tang-xuanzong→li-longji、yongle-emperor→zhu-di、genghis-khan→chengji-si-han、sun-yat-sen→sun-zhongshan 等 30+）、事件别名（chenqiao-mutiny→chenqiao-bingbian、ganlu-incident→sweet-dew-incident、wusi-yundong→may-fourth-movement 等 20+）。
+- **删引用 230 项**：指向朝代/分期的引用（idMap 只含节点集合，且 dynasty 字段已有归属）、指向计划外节点的 1 处引用（书目、战役、次要人物）。名单见 related-map.json 的 drops。
+- **补队列 26 项**：≥2 处引用的著名实体或事件主角（班固、韩信、董仲舒、谢玄、王导、秦桧、宋太宗/神宗、万历帝、明英宗/代宗/崇祯、吴三桂、多尔衮、完颜阿骨打、欧阳修、五四相关等），追加于 queue.yaml 尾部「related 订正补充」节。
+
+防误伤措施：R3 模糊匹配的 15+ 处「名字相近的不同人」（谢玄≠谢安、张良≠张骞、王猛≠王莽、李德裕≠李煜等）全部人工排除；apply 含自引用防护、related 去重；自引用致空与删空致 `related: null` 的文件统一改 `related: []`。
+
+事故记录：apply 首版写回丢失开头 `---` 定界符，140 文件 frontmatter 短暂损坏，已按统一格式恢复并修复脚本（write 行补 `---\n` 前缀）；git diff 复核仅 related 行变化。
+
+结果：validate 0 错误；unknown-related 从 401 → 44 条，剩余全部指向 queue 未来节点（合法等待态）。非 related 的既有警告（official-count 超量等）不在本次范围。
+
+财务决定：models.yaml 单价回填、gen:eval 定档、model-eval.md 定稿等账务工作**移出项目范围**（用户自行核算），models.yaml 保持占位单价，stats 费用恒 ¥0 属预期。

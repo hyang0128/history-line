@@ -25,7 +25,7 @@ location: 河北三镇（魏博、成德、卢龙）及全国诸道
 related:
   - an-lushan-rebellion
   - liangshui-fa
-  - huangchao-uprising
+  - huang-chao-uprising
   - zhu-wen
 status: draft
 generated_by: deepseek-v4-flash[1M]

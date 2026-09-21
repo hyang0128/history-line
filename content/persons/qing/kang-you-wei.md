@@ -20,10 +20,8 @@ tags:
   - 保皇派
 location: 广东南海、北京、日本、南洋、欧美
 related:
-  - wuxu-bianfa
-  - liang-qichao
-  - guangxu-emperor
-  - cixi
+  - wuxu-reform
+  - ci-xi
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: person

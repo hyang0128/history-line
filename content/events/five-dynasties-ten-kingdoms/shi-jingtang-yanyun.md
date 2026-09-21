@@ -21,9 +21,6 @@ tags:
 location: 晋阳、幽州、大梁
 related:
   - shi-jingtang
-  - yelu-deguang
-  - liao-dynasty
-  - song-dynasty
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: event

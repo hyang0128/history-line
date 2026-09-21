@@ -17,7 +17,7 @@ tags:
   - 转折点
 location: 欧洲、近东、非洲、远东
 related:
-  - wusi-yundong
+  - may-fourth-movement
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: world

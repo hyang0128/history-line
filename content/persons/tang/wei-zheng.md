@@ -23,7 +23,7 @@ location: 长安
 related:
   - li-shimin
   - xuanwu-gate-incident
-  - zhenguan-governance
+  - zhenguan-reign
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: person

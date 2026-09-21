@@ -19,9 +19,7 @@ tags:
   - 鲜卑
   - 五胡
 location: 平城（今山西大同）
-related:
-  - northern-wei
-  - pingcheng
+related: []
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: person

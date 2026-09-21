@@ -19,7 +19,7 @@ tags:
   - 戊戌六君子
 location: 北京
 related:
-  - jiawu-war
+  - sino-japanese-war
   - yangwu-movement
   - xinhai-revolution
 status: draft

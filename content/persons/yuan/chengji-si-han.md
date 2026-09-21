@@ -21,10 +21,7 @@ tags:
   - 世界史
 location: 蒙古高原、金朝北部、西夏、中亚、花剌子模
 related:
-  - mongol-empire
-  - xixia
-  - jin-dynasty
-  - khwarazmian-empire
+  - mongol-empire-founding
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: person

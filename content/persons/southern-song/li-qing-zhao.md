@@ -20,8 +20,6 @@ tags:
   - 金石学
 location: 济南、汴京、青州、建康、临安
 related:
-  - zhao-mingcheng
-  - jin-shi-lu
   - jingkang-incident
 status: draft
 generated_by: deepseek-v4-flash[1M]

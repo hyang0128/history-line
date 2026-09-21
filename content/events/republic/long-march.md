@@ -19,11 +19,7 @@ tags:
   - 红军
   - 转折点
 location: 江西、湖南、贵州、云南、四川、甘肃、陕西
-related:
-  - zunyi-conference
-  - xiangjiang-battle
-  - sida-chishui
-  - huining-huishi
+related: []
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: event

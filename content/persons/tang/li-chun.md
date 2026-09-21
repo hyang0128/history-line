@@ -19,9 +19,7 @@ tags:
 location: 长安
 related:
   - pei-du
-  - wu-yuanji
   - yuanhe-restoration
-  - tang-shunzong
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: person

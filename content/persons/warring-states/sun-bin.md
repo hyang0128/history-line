@@ -22,7 +22,6 @@ tags:
 location: 齐国（今山东）、桂陵、马陵
 related:
   - sun-wu
-  - pang-juan
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: person

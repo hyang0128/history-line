@@ -21,7 +21,6 @@ tags:
 location: 齐国（今山东一带）→ 吴国（今江苏一带）
 related:
   - sun-bin
-  - wu-zixu
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: person

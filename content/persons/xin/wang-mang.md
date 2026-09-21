@@ -20,8 +20,7 @@ tags:
   - 篡位
 location: 魏郡元城、长安
 related:
-  - liu-xiu
-  - wang-zhengjun
+  - guangwu-di
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: person

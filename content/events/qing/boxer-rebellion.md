@@ -22,10 +22,9 @@ tags:
   - 转折点
 location: 山东、直隶、天津、北京
 related:
-  - wu-xu-bianfa
-  - late-qing-reforms
+  - wuxu-reform
   - xinhai-revolution
-  - empress-dowager-cixi
+  - ci-xi
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: event

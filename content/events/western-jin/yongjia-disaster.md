@@ -22,11 +22,7 @@ tags:
 location: 洛阳、长安、建康、江左
 related:
   - ba-wang-zhi-luan
-  - si-ma-rui
   - wang-dao
-  - liu-yao
-  - shi-le
-  - dong-jin
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: event

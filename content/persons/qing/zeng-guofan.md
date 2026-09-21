@@ -23,8 +23,7 @@ tags:
 location: 湖南湘乡（今属湖南双峰）
 related:
   - taiping-rebellion
-  - xiangjun
-  - yangwu-yundong
+  - yangwu-movement
   - hong-xiuquan
   - li-hongzhang
 status: draft

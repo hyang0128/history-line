@@ -22,10 +22,6 @@ tags:
 location: 三原（今陕西三原）、长安、江陵、定襄、青海湖以西
 related:
   - li-shimin
-  - li-shiji
-  - xiao-xian
-  - east-turks
-  - tuyuhun
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: person

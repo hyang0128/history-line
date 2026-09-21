@@ -21,10 +21,8 @@ tags:
   - 万历朝
 location: 江陵、北京
 related:
-  - wanli-emperor
-  - gao-gong
-  - feng-bao
-  - qi-jiguang
+  - wanli
+  - qi-ji-guang
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: person

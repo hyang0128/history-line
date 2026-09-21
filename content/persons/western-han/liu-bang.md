@@ -22,10 +22,7 @@ tags:
 location: 沛县、关中、长安
 related:
   - xiang-yu
-  - xiao-he
-  - zhang-liang
   - han-xin
-  - lv-zhi
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: person

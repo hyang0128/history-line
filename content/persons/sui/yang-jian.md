@@ -21,9 +21,6 @@ tags:
 location: 长安、大兴城
 related:
   - yang-guang
-  - sui-dynasty
-  - chen-dynasty
-  - gao-jiong
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: person

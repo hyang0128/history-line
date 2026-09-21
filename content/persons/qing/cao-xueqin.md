@@ -19,8 +19,6 @@ tags:
   - 江宁织造
 location: 江宁、北京
 related:
-  - hongloumeng
-  - cao-yin
   - yongzheng
 status: draft
 generated_by: deepseek-v4-flash[1M]

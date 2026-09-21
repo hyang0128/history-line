@@ -22,11 +22,8 @@ tags:
   - 帝制终结
 location: 武昌、南京、北京
 related:
-  - wuchang-uprising
-  - sun-yat-sen
-  - yuan-shikai
-  - qing-dynasty
-  - republic-of-china
+  - sun-zhongshan
+  - yuan-shi-kai
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: event

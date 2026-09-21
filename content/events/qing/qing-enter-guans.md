@@ -20,10 +20,9 @@ tags:
   - 剃发令
 location: 山海关、北京、盛京
 related:
-  - li-zicheng-uprising
+  - li-zi-cheng
   - wu-sangui
   - dorgon
-  - shunzhi-emperor
   - southern-ming
 status: draft
 generated_by: deepseek-v4-flash[1M]

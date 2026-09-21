@@ -22,7 +22,6 @@ tags:
 location: 相州汤阴、襄阳、郾城、临安
 related:
   - jingkang-incident
-  - song-gaozong
   - qin-hui
   - shaoxing-heyi
 status: draft

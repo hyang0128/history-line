@@ -20,8 +20,7 @@ tags:
   - 秦国
   - 战国
 location: 卫国、秦国（栎阳、咸阳）
-related:
-  - qin-xiaogong
+related: []
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: person

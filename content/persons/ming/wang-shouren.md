@@ -20,10 +20,7 @@ tags:
   - 教育家
 location: 余姚、龙场驿、南昌、广西
 related:
-  - zhuxi
-  - zhan-ruoshui
-  - ningwang-rebellion
-  - ming-ru-xue-an
+  - zhu-xi
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: person

@@ -18,9 +18,7 @@ tags:
   - 霸业
   - 名相
 location: 齐国（今山东淄博东北）
-related:
-  - qi-huan-gong
-  - bao-shu-ya
+related: []
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: person

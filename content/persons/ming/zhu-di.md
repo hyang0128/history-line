@@ -22,9 +22,8 @@ tags:
   - 永乐大典
 location: 北平、南京、北京、漠北
 related:
-  - jianwen-emperor
+  - zhu-yunwen
   - zheng-he
-  - yongle-dadian
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: person

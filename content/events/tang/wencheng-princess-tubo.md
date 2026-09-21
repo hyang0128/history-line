@@ -21,7 +21,6 @@ location: 长安、柏海、逻些（今拉萨）
 related:
   - li-shimin
   - songtsen-gampo
-  - jincheng-princess-tubo
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: event

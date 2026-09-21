@@ -20,9 +20,8 @@ tags:
 location: 江陵、成都、广州、金陵、太原
 related:
   - zhao-kuangyin
-  - zhao-kuangyi
-  - chenqiao-mutiny
-  - ten-kingdoms
+  - song-taizong
+  - chenqiao-bingbian
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: event

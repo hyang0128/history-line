@@ -22,8 +22,7 @@ location: 下相、巨鹿、彭城、荥阳、垓下、乌江
 related:
   - liu-bang
   - han-xin
-  - xiang-liang
-  - chu-han-war
+  - chu-han-contention
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: person

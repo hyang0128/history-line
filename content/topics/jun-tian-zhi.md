@@ -15,8 +15,7 @@ tags:
   - 租庸调
   - 田制
 related:
-  - zu-yong-diao
-  - liang-shui-fa
+  - liangshui-fa
   - yang-yan
 status: draft
 generated_by: deepseek-v4-flash[1M]

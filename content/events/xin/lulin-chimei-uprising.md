@@ -20,9 +20,7 @@ tags:
 location: 绿林山（今湖北大洪山一带）、昆阳（今河南叶县）、长安、洛阳、宜阳
 related:
   - wang-mang
-  - liu-xiu
-  - kunyang-battle
-  - gengshi-regime
+  - guangwu-di
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: event

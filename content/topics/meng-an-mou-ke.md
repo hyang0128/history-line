@@ -16,10 +16,7 @@ tags:
   - 兵民合一
 location: 金朝全境
 related:
-  - nuzhen-qibing
-  - wan-yan-aguda
-  - jin-hai-ling-wang
-  - jin-shi-zong
+  - wanyan-aguda
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: topic

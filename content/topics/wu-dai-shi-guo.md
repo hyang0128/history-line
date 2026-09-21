@@ -19,8 +19,6 @@ tags:
 location: 中原（黄河流域）、南方诸国、河东
 related:
   - an-lushan-rebellion
-  - tang
-  - song
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: topic

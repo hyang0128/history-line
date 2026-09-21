@@ -19,10 +19,7 @@ tags:
   - 齐国
 location: 桂陵、马陵、邯郸、大梁
 related:
-  - wei-hui-wang
-  - qi-wei-wang
   - sun-bin
-  - pang-juan
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: event

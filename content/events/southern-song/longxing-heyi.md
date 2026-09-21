@@ -20,11 +20,7 @@ tags:
 location: 符离（今安徽宿州市）、淮北、临安、中都
 related:
   - shaoxing-heyi
-  - jiading-heyi
   - kaixi-beifa
-  - song-xiaozong
-  - wanyan-yong
-  - zhang-jun
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: event

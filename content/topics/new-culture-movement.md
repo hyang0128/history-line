@@ -18,11 +18,7 @@ tags:
   - 反封建
 location: 上海、北京
 related:
-  - wusi-yundong
-  - xinqingnian
-  - chen-duxiu
-  - hu-shi
-  - li-dazhao
+  - may-fourth-movement
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: topic

@@ -19,9 +19,8 @@ tags:
 location: 长安、凤翔
 related:
   - li-xun
-  - tang-wenzong
-  - ganlu-incident
-  - wang-shoucheng
+  - li-ang
+  - sweet-dew-incident
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: person

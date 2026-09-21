@@ -20,10 +20,8 @@ tags:
   - 辽东
 location: 萨尔浒、尚间崖、阿布达里冈、斐芬山
 related:
-  - nuerhachi
-  - ming-shenzong
-  - yang-hao
-  - later-jin-rise
+  - nurhaci
+  - wanli
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: event

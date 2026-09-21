@@ -23,8 +23,6 @@ tags:
 location: 中原（黄河流域）；会稽（今浙江绍兴）有禹陵
 related:
   - shun
-  - xia-dynasty
-  - erlitou
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: person

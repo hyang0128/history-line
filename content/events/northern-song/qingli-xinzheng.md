@@ -20,8 +20,7 @@ location: 东京（开封）
 related:
   - fan-zhongyan
   - ouyang-xiu
-  - song-renzong
-  - wanganshi-bianfa
+  - wang-anshi-bianfa
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: event

@@ -23,9 +23,7 @@ tags:
 location: 香山（今中山）、檀香山、伦敦、东京、南京、北京
 related:
   - xinhai-revolution
-  - tongmenghui
-  - wuchang-uprising
-  - yuan-shikai
+  - yuan-shi-kai
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: person

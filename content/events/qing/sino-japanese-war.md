@@ -22,8 +22,6 @@ tags:
 location: 朝鲜、黄海、辽东半岛、山东威海卫
 related:
   - li-hongzhang
-  - beiyang-fleet
-  - maguan-treaty
   - wuxu-reform
 status: draft
 generated_by: deepseek-v4-flash[1M]

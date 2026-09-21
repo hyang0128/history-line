@@ -19,9 +19,7 @@ tags:
   - 南宋
 location: 山阴（今浙江绍兴）
 related:
-  - xin-qiji
-  - shi-e
-  - nan-song-wenxue
+  - xin-qi-ji
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: person

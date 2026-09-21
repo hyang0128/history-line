@@ -22,9 +22,6 @@ tags:
 location: 镐京、洛邑、曲阜
 related:
   - zhou-wuwang
-  - zhou-chengwang
-  - boqin
-  - wugeng
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: person

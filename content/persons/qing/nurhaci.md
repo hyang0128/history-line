@@ -21,8 +21,7 @@ tags:
   - 明清战争
 location: 赫图阿拉、辽阳、沈阳
 related:
-  - qing-dynasty
-  - salhu-battle
+  - sarhu-battle
   - yuan-chonghuan
 status: draft
 generated_by: deepseek-v4-flash[1M]

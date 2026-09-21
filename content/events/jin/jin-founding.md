@@ -20,8 +20,6 @@ tags:
 location: 按出虎水（今黑龙江阿什河）畔，后扩建为会宁府（今哈尔滨市阿城区）
 related:
   - wanyan-aguda
-  - liao-dynasty
-  - northern-song
   - meng-an-mou-ke
   - jingkang-incident
 status: draft

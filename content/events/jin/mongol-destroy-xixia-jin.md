@@ -22,11 +22,8 @@ tags:
   - 13世纪
 location: 西夏故地（今宁夏、甘肃西部）、金朝疆域（今河南、陕西、河北等）
 related:
-  - genghis-khan
-  - ogedei-khan
-  - jin-ai-zong
-  - menggong
-  - duanping-ruoluo
+  - chengji-si-han
+  - duanping-ru-luo
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: event

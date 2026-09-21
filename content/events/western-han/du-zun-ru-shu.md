@@ -21,8 +21,6 @@ location: 长安
 related:
   - dong-zhongshu
   - han-wudi
-  - huanglao
-  - taixue
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: event

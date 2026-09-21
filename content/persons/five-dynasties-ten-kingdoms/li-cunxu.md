@@ -23,8 +23,6 @@ tags:
 location: 太原、魏州、洛阳、汴州
 related:
   - li-keyong
-  - li-siyuan
-  - guo-chongtao
   - zhu-wen
 status: draft
 generated_by: deepseek-v4-flash[1M]

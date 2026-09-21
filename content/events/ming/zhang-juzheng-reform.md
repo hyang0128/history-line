@@ -19,7 +19,7 @@ tags:
   - 明代
 location: 北京
 related:
-  - wanli-emperor
+  - wanli
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: event

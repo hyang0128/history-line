@@ -19,11 +19,8 @@ tags:
   - 清军入关
 location: 陕西米脂、西安、北京、山海关、湖北通山
 related:
-  - chongzhen
+  - zhu-youjian
   - wu-sangui
-  - dashun-regime
-  - shanhaiguan-battle
-  - qing-dynasty
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: person

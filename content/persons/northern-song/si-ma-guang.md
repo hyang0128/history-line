@@ -22,10 +22,9 @@ tags:
   - 元祐更化
 location: 陕州夏县（今山西夏县）、东京开封、洛阳
 related:
-  - wang-an-shi
-  - wang-an-shi-bian-fa
-  - yuan-you-geng-hua
-  - zi-zhi-tong-jian
+  - wang-anshi
+  - wang-anshi-bianfa
+  - yuanyou-geng-hua
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: person

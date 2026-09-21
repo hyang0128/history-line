@@ -21,10 +21,9 @@ tags:
   - 隋炀帝
 location: 山东、河北、河南、江淮、太原、江都
 related:
-  - sui-yangdi
+  - yang-guang
   - li-yuan
-  - tang-gaozu
-  - li-mi
+  - li-yuan
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: event

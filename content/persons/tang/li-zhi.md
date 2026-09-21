@@ -21,7 +21,7 @@ tags:
   - 武则天
 location: 长安、洛阳
 related:
-  - li-shi-min
+  - li-shimin
   - wu-zetian
 status: draft
 generated_by: deepseek-v4-flash[1M]

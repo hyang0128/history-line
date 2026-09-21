@@ -20,13 +20,10 @@ tags:
   - 牛李党争
 location: 长安
 related:
-  - ganlu-incident
-  - niu-li-faction
+  - sweet-dew-incident
+  - niu-li-faction-feud
   - li-xun
   - zheng-zhu
-  - qiu-shiliang
-  - wang-shoucheng
-  - song-shenxi
   - tang-wuzong
 status: draft
 generated_by: deepseek-v4-flash[1M]

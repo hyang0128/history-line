@@ -21,8 +21,7 @@ location: 大同、土木堡、北京
 related:
   - zhu-qizhen
   - yu-qian
-  - ming-zhang-tong
-  - jingtai
+  - zhu-qiyu
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: event

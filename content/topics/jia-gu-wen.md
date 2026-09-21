@@ -19,11 +19,7 @@ tags:
   - 殷墟
   - 商代
 location: 河南安阳殷墟（小屯村）
-related:
-  - shang-dynasty
-  - yin-xu
-  - guo-mo-ruo
-  - wang-guo-wei
+related: []
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: topic

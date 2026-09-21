@@ -19,12 +19,7 @@ tags:
   - 翻译
   - 明末
 location: 上海、南京、北京
-related:
-  - li-madou
-  - li-zhizao
-  - jijihe-yuanben
-  - nongzheng-quanshu
-  - chongzhen-lifa
+related: []
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: person

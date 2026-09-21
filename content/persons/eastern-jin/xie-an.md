@@ -20,9 +20,8 @@ tags:
   - 宰相
 location: 建康、会稽
 related:
-  - fei-river-battle
+  - feishui-battle
   - wang-dao
-  - huan-wen
   - xie-xuan
 status: draft
 generated_by: deepseek-v4-flash[1M]

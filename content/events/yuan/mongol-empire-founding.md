@@ -21,9 +21,7 @@ tags:
   - 转折点
 location: 斡难河源（今蒙古国肯特省）
 related:
-  - genghis-khan
-  - mongol-empire
-  - yuan-dynasty
+  - chengji-si-han
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: event

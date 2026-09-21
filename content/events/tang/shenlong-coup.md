@@ -20,10 +20,7 @@ tags:
 location: 洛阳（神都）
 related:
   - wu-zetian
-  - tang-zhongzong
-  - wu-zhou
-  - zhang-jianzhi
-  - wu-san-si
+  - wu-zhou-usurpation
 status: draft
 generated_by: deepseek-v4-flash[1M]
 type: event
