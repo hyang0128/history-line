@@ -69,7 +69,7 @@ type: event
   category: modern
   license: paraphrase
   text: 梁启超认为《马关条约》的签订既是李鸿章个人外交的失败，更是洋务运动只学西艺皮毛、未改国家制度的失败。他同情李鸿章所处的不利地位，但最终以“以一人而敌一国”来概括其一生的困局。
-  note: 梁启超在戊戌变法失败后旅日期间成书，属时人评论。；（AI收集，原书待核）
+  note: 梁启超在戊戌变法失败后旅日期间成书，属时人评论；（AI收集，原书待核）
 - author: 蒋廷黻
   source: 《中国近代史》
   category: modern

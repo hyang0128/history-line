@@ -67,7 +67,7 @@ type: event
   category: modern
   license: paraphrase
   text: 钱穆认为西周分封体制崩溃后，霸主代行周天子维持当时国际秩序的功能；晋文公在城濮击败楚人，尊王攘夷，遂为中原诸侯之共主。楚国虽败退，并未大伤，晋楚对峙成为此后春秋史的中心。
-  note: 具体章节卷次待核。；（AI收集，原书待核）
+  note: 具体章节卷次待核；（AI收集，原书待核）
 - author: AI 综述
   source: 综合《春秋》《左传》《国语》《史记》及钱穆、童书业、杨伯峻等论著
   category: ai

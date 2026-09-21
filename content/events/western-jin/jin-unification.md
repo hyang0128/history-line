@@ -68,7 +68,7 @@ type: event
   category: modern
   license: paraphrase
   text: 钱穆认为西晋的统一缺乏制度基础，宗室诸王与门阀势力使皇权分散，统一局面迅速瓦解；他把"统一"理解为一个需要持续建设的过程，而不只是军事征服的结果。
-  note: 章节待核。；（AI收集，原书待核）
+  note: 章节待核；（AI收集，原书待核）
 - author: AI 综述
   source: 综合《三国志》《晋书》《华阳国志》及钱穆等现代研究
   category: ai

@@ -71,13 +71,13 @@ type: event
   category: modern
   license: paraphrase
   text: 钱穆在叙述春秋历史时，将平王东迁视为周室“王纲解纽”的起点，认为东迁后王室仅存虚名，天下秩序转而由霸主维持；秦人因东迁前后勤王有功而受封，为日后壮大埋下伏笔。
-  note: 篇章待核。；（AI收集，原书待核）
+  note: 篇章待核；（AI收集，原书待核）
 - author: 顾颉刚
   source: 《史林杂识》初编
   category: modern
   license: paraphrase
   text: 顾颉刚辨析“烽火戏诸侯”传说，认为其叙事带有后世小说笔法，与更早史料不合，可能是后人据褒姒亡国观念增饰而成；这意味着对平王东迁这一事件的说明要区分可信记载与后世渲染。
-  note: 篇名待核。；（AI收集，原书待核）
+  note: 篇名待核；（AI收集，原书待核）
 - author: AI 综述
   source: 综合《史记》《国语》《左传》《竹书纪年》及顾颉刚、钱穆等论著
   category: ai

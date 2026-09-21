@@ -100,6 +100,19 @@ export function splitSections(body: string): Map<string, string> {
   return sections;
 }
 
+/**
+ * 切出第一个二级标题之前的导语（preamble）与其余部分。
+ * splitSections 会丢弃导语——按 sections 重建正文的调用方（fixup、run.ts）
+ * 必须先用这个把导语留下来，否则手写在文件开头的内容会静默丢失。
+ * 无二级标题时 preamble 为空串、rest 为原文。
+ */
+export function splitPreamble(body: string): { preamble: string; rest: string } {
+  const normalized = body.replace(/\r\n?/g, '\n');
+  const m = /^##\s+/m.exec(normalized);
+  if (!m || m.index === 0) return { preamble: '', rest: body };
+  return { preamble: normalized.slice(0, m.index), rest: normalized.slice(m.index) };
+}
+
 function parseList<T>(
   raw: string,
   schema: z.ZodType<T>,

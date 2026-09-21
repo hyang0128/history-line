@@ -66,7 +66,7 @@ type: event
   category: modern
   license: paraphrase
   text: 王国维利用殷墟甲骨卜辞考证商代先公先王世系，证明《史记·殷本纪》所记商王名号与次序大体可信；他又结合文献与金文考证殷地所在，奠定了殷墟为商后期都城之说。这一将出土文字与传世文献互证的方法，使盘庚迁殷由旧史记载进入信史研究。
-  note: 篇目卷次待核。；（AI收集，原书待核）
+  note: 篇目卷次待核；（AI收集，原书待核）
 - author: 陈梦家
   source: 《殷虚卜辞综述》
   category: modern

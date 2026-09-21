@@ -73,7 +73,7 @@ type: event
   category: modern
   license: paraphrase
   text: 吕思勉认为东汉之亡是长期政治衰败的自然结果，不能简单以"篡"字贬斥曹氏。他特别强调曹操在世时并无代汉之心，代汉由曹丕完成，是时势推进下的政权交接，不应仅从个人道德着眼。
-  note: 具体篇目待核。；（AI收集，原书待核）
+  note: 具体篇目待核；（AI收集，原书待核）
 - author: AI 综述
   source: 综合《三国志》《后汉书》《资治通鉴》及吕思勉、田余庆等论著
   category: ai

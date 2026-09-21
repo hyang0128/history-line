@@ -86,7 +86,7 @@ type: event
   category: modern
   license: paraphrase
   text: 顾颉刚系统排比古书中纣王罪状出现先后，指出周初文献所记不过酗酒、不用贵戚旧臣等数条，后世不断增加，至《封神演义》而多达七十余事；纣恶是“层累地造成的古史”，不可尽信晚出记载。
-  note: 卷次待核。；（AI收集，原书待核）
+  note: 卷次待核；（AI收集，原书待核）
 - author: AI 综述
   source: 综合《史记》《尚书》《竹书纪年》《逸周书》、利簋铭文及顾颉刚、夏商周断代工程等研究
   category: ai

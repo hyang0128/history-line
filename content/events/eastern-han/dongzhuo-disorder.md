@@ -88,7 +88,7 @@ type: event
   category: modern
   license: paraphrase
   text: 吕思勉主张读三国史须区分小说与史实，讨论董卓之乱时强调何进、袁绍召董卓入京是重大失策，又提醒不可把《三国演义》中的董卓形象当作全部历史。
-  note: 转述该学者观点。；（AI收集，原书待核）
+  note: 转述该学者观点；（AI收集，原书待核）
 - author: AI 综述
   source: 综合《后汉书》《三国志》《资治通鉴》《英雄记》及司马光、王夫之、吕思勉等论著
   category: ai

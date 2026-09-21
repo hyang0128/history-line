@@ -68,7 +68,7 @@ type: event
   category: modern
   license: paraphrase
   text: 钱穆认为王莽改制并非仅为个人野心，而是针对西汉晚期土地兼并、奴婢买卖等现实问题的“复古”尝试，只因依据古书、不切时势又用非其人而失败；莽末民变与东汉光武中兴都应放在这一社会背景下理解。
-  note: 章节待核。；（AI收集，原书待核）
+  note: 章节待核；（AI收集，原书待核）
 - author: AI 综述
   source: 综合《汉书》《后汉书》《资治通鉴》《东观汉记》辑本及钱穆、吕思勉等论著
   category: ai

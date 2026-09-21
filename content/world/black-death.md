@@ -67,13 +67,13 @@ region: 欧洲
   category: modern
   license: paraphrase
   text: 傅海波在论元末社会时指出，14 世纪中叶的疫病并非中国独有，欧亚大陆多处遭受鼠疫冲击，黑死病与元末动乱处于同一气候与生态变动周期，但东西方政治反应与社会后果因制度不同而分道扬镳。
-  note: 转述，不输出原文。；（AI收集，原书待核）
+  note: 转述，不输出原文；（AI收集，原书待核）
 - author: 威廉·艾贝尔（William Abel）
   source: 《瘟疫之后的农业波动》（Agricultural Fluctuations in Europe，1978）
   category: modern
   license: paraphrase
   text: 艾贝尔依据庄园账簿与粮食价格数据论证，黑死病后欧洲人口骤降、劳动力短缺，导致工资上涨、地租下降，庄园制经济向货币地租与租佃制过渡，这为后来资本主义农业关系准备了条件。
-  note: 转述，不输出原文。；（AI收集，原书待核）
+  note: 转述，不输出原文；（AI收集，原书待核）
 - author: AI 综述
   source: 综合薄伽丘《十日谈》、各国编年史、教区档案以及后弗拉基米尔·A. 穆罕默德、威廉·艾贝尔、大卫·赫布斯特等学者论著
   category: ai

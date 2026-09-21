@@ -76,7 +76,7 @@ type: event
   category: modern
   license: paraphrase
   text: 吕思勉论东汉末年形势，认为黄巾起事反映社会基层组织与民间信仰，张角虽有组织，但真正根源在政治腐败与经济凋敝；他也指出朝廷依赖州郡自行募兵而失去对地方的控制，为三国鼎立局面埋下伏笔。
-  note: 篇名待核。；（AI收集，原书待核）
+  note: 篇名待核；（AI收集，原书待核）
 - author: AI 综述
   source: 综合《后汉书》《资治通鉴》《典略》佚文及王夫之、葛洪、吕思勉相关论著
   category: ai

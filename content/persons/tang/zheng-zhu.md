@@ -76,7 +76,7 @@ titles:
   category: modern
   license: paraphrase
   text: 吕思勉在论唐代宦官专权时认为，甘露之变后宦官势力更加不可制，文宗前期的除宦官计划因此全盘失败；李训、郑注才识不足而妄图以阴谋清除积弊，其失败并不偶然。
-  note: 页码待核。；（AI收集，原书待核）；（AI收集，原书待核）
+  note: 页码待核；（AI收集，原书待核）
 - author: AI 综述
   source: 综合《旧唐书》《新唐书》《资治通鉴》《唐鉴》及吕思勉《隋唐五代史》等
   category: ai

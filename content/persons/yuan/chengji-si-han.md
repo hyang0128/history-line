@@ -79,7 +79,7 @@ titles:
   category: modern
   license: paraphrase
   text: 姚大力在论著中强调，成吉思汗统一蒙古的过程同时也是国家建构的过程：千户、怯薛与札撒使大汗拥有超越部落贵族的直接权力，这是蒙古扩张的制度前提。他也指出，早期蒙古史料的稀少限制了对成吉思汗个人的准确评价。
-  note: 该书为作者关于蒙元制度与政治文化的论文集。；（AI收集，原书待核）
+  note: 该书为作者关于蒙元制度与政治文化的论文集；（AI收集，原书待核）
 - author: 杰克·威泽弗德
   source: 《成吉思汗与今日世界之形成》（Genghis Khan and the Making of the Modern World，2004）
   category: contemporary
