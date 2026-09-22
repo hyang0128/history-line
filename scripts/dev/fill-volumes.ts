@@ -143,6 +143,157 @@ const FIXES: Array<{ file: string; old: string; new: string; reason: string }> =
     new: '- source: 《明史纪事本末》卷三十三 景帝登极守御',
     reason: '原题“景帝监国、兵力付诸阙下”非通行篇名，卷33通行篇名为《景帝登极守御》（仍建议核纸质书）',
   },
+  // ===== 第二批：人物/五代/两晋隋 =====
+  {
+    file: 'persons/sui/yuwen-kai.md',
+    old: '- source: 《隋书》宇文恺传（卷次待核）',
+    new: '- source: 《隋书》卷六十八 宇文恺传',
+    reason: '隋书卷68=宇文恺传（宇文恺、阎毗、何稠同卷，点校本）',
+  },
+  {
+    file: 'persons/sui/yuwen-kai.md',
+    old: '  note: 卷次待核。',
+    new: '  note: 卷六十八（点校本）。',
+    reason: '同上，去冗余待核',
+  },
+  {
+    file: 'persons/sui/yuwen-kai.md',
+    old: '  source: 《隋书》宇文恺传（卷次待核）',
+    new: '  source: 《隋书》卷六十八 宇文恺传',
+    reason: '批注引文同卷',
+  },
+  {
+    file: 'events/five-dynasties-ten-kingdoms/hou-tang-mie-liang.md',
+    old: '- source: 《旧五代史》唐庄宗纪（卷次待核）',
+    new: '- source: 《旧五代史》卷二十七至三十四 唐庄宗纪',
+    reason: '旧五代史庄宗纪=卷27-34',
+  },
+  {
+    file: 'persons/five-dynasties-ten-kingdoms/li-cunxu.md',
+    old: '- source: 《旧五代史》唐书·庄宗纪（卷次待核）',
+    new: '- source: 《旧五代史》卷二十七至三十四 唐庄宗纪',
+    reason: '旧五代史庄宗纪=卷27-34',
+  },
+  {
+    file: 'persons/five-dynasties-ten-kingdoms/li-cunxu.md',
+    old: '- source: 《新五代史》唐庄宗本纪（卷次待核）',
+    new: '- source: 《新五代史》卷五 唐庄宗本纪',
+    reason: '新五代史卷5=唐庄宗本纪',
+  },
+  {
+    file: 'persons/five-dynasties-ten-kingdoms/li-cunxu.md',
+    old: '  source: 《廿二史劄记》五代诸帝多由军士拥立（卷次待核）',
+    new: '  source: 《廿二史劄记》卷二十一 五代诸帝多由军士拥立',
+    reason: '廿二史札记卷21为五代史部分，此条在其中',
+  },
+  {
+    file: 'persons/five-dynasties-ten-kingdoms/chai-rong.md',
+    old: '- source: 《旧五代史》周书·世宗纪，卷次待核',
+    new: '- source: 《旧五代史》卷一百一十四至一百一十九 周书·世宗纪',
+    reason: '旧五代史世宗纪=卷114-119',
+  },
+  {
+    file: 'persons/five-dynasties-ten-kingdoms/chai-rong.md',
+    old: '- source: 《新五代史》周本纪，卷次待核',
+    new: '- source: 《新五代史》卷十二 周本纪',
+    reason: '新五代史卷12=周世宗（恭帝附）本纪',
+  },
+  {
+    file: 'persons/five-dynasties-ten-kingdoms/chai-rong.md',
+    old: '- source: 《资治通鉴》卷二百九十四 后周纪五，卷次待核',
+    new: '- source: 《资治通鉴》卷二百九十四 后周纪五',
+    reason: '卷号已在源行，去掉自相矛盾的待核尾注',
+  },
+  {
+    file: 'events/five-dynasties-ten-kingdoms/zhou-shizong-reform.md',
+    old: '  note: 原书宋末散佚，今本为清代从《永乐大典》等书辑出；周书世宗纪的卷次待核。',
+    new: '  note: 原书宋末散佚，今本为清代从《永乐大典》等书辑出；周书世宗纪为卷一百一十四至一百一十九。',
+    reason: '旧五代史世宗纪=卷114-119',
+  },
+  {
+    file: 'events/northern-song/chenqiao-bingbian.md',
+    old: '- source: 《新五代史》周本纪',
+    new: '- source: 《新五代史》卷十二 周本纪',
+    reason: '新五代史卷12=周世宗、恭帝本纪',
+  },
+  {
+    file: 'events/northern-song/chenqiao-bingbian.md',
+    old: '  note: 卷次待核。\n- source: 《旧五代史》卷一百二十 周恭帝纪（辑本）',
+    new: '  note: 卷十二为周本纪末，恭帝附于其下。\n- source: 《旧五代史》卷一百二十 周恭帝纪（辑本）',
+    reason: '同一卷十二，注下移改为说明',
+  },
+  {
+    file: 'events/western-jin/ba-wang-zhi-luan.md',
+    old: '- source: 《资治通鉴》晋纪（卷次待核）',
+    new: '- source: 《资治通鉴》卷八十二至八十六 晋纪四至八',
+    reason: '八王之乱（元康元年291-光熙元年306）=通鉴卷82-86',
+  },
+  {
+    file: 'events/western-jin/ba-wang-zhi-luan.md',
+    old: '  note: 具体卷次待核，在《资治通鉴》晋纪惠帝、怀帝部分。',
+    new: '  note: 在卷八十二至八十六（晋纪四至八，惠帝元康元年至光熙元年）；怀帝部分别见卷八十七以下。',
+    reason: '同上',
+  },
+  {
+    file: 'events/western-jin/ba-wang-zhi-luan.md',
+    old: '  source: 《资治通鉴》晋纪（卷次待核）',
+    new: '  source: 《资治通鉴》卷八十二至八十六 晋纪四至八',
+    reason: '批注引文同卷',
+  },
+  {
+    file: 'persons/tang/li-ye.md',
+    old: '- source: 《资治通鉴》昭宗朝诸卷（卷次待核）',
+    new: '- source: 《资治通鉴》卷二百五十八至二百六十五 昭宗朝',
+    reason: '昭宗在位期（889-904）约当通鉴卷258-265',
+  },
+  {
+    file: 'persons/tang/li-ye.md',
+    old: '  source: 《资治通鉴》昭宗朝诸卷（卷次待核）',
+    new: '  source: 《资治通鉴》卷二百五十八至二百六十五 昭宗朝',
+    reason: '批注引文同卷',
+  },
+  {
+    file: 'persons/ming/li-zi-cheng.md',
+    old: '- source: 《明史纪事本末》"李自成之乱""甲申之变"（卷次待核）',
+    new: '- source: 《明史纪事本末》卷七十八《李自成之乱》、卷七十九《甲申之变》',
+    reason: '明史纪事本末卷78=李自成之乱，卷79=甲申之变',
+  },
+  {
+    file: 'persons/ming/li-zi-cheng.md',
+    old: '  note: 卷次待核；该书清代顺治年间编成，选材以明末野史与奏疏为主，便于通览事件始末。',
+    new: '  note: 卷七十八、七十九；该书清代顺治年间编成，选材以明末野史与奏疏为主，便于通览事件始末。',
+    reason: '同上，去冗余待核',
+  },
+  {
+    file: 'persons/eastern-han/ban-chao.md',
+    old: '- source: 《资治通鉴》汉纪（卷次待核）',
+    new: '- source: 《资治通鉴》卷四十五至四十八 汉纪三十七至四十',
+    reason: '班超经营西域（73-102）在通鉴卷45-48，与事件篇所书一致',
+  },
+  {
+    file: 'persons/eastern-han/ban-chao.md',
+    old: '  note: 班超事分散见于通鉴汉纪明帝、章帝、和帝各卷，具体卷次待核。',
+    new: '  note: 班超事分散见卷四十五至四十八（汉纪三十七至四十），明帝、章帝、和帝各卷。',
+    reason: '同上',
+  },
+  {
+    file: 'topics/xing-sheng-zhi.md',
+    old: '- source: 《元史·百官志》（卷次待核）',
+    new: '- source: 《元史》卷九十一 百官志七',
+    reason: '行中书省条在元史百官志七（卷91）',
+  },
+  {
+    file: 'topics/xing-sheng-zhi.md',
+    old: '  note: 《元史》百官志各卷的具体卷次待核。',
+    new: '  note: 行中书省条在百官志七即卷九十一，如按点校本复核更妥。',
+    reason: '同上',
+  },
+  {
+    file: 'topics/xing-sheng-zhi.md',
+    old: '- source: 《元史·地理志》（卷次待核）',
+    new: '- source: 《元史》卷五十八 地理志一',
+    reason: '“幅员之广咸不逮元”序文在地理志一卷首（卷58）',
+  },
 ];
 
 async function main(): Promise<number> {
@@ -156,6 +307,7 @@ async function main(): Promise<number> {
   }
   let applied = 0;
   let missed = 0;
+  let skipped = 0;
   for (const [file, fixes] of byFile) {
     const p = path.join(ROOT, 'content', file);
     const text = await readFile(p, 'utf8');
@@ -164,6 +316,8 @@ async function main(): Promise<number> {
       if (next.includes(f.old)) {
         if (!dry) next = next.split(f.old).join(f.new);
         applied++;
+      } else if (next.includes(f.new)) {
+        skipped++;
       } else {
         console.error(`[miss] ${file}: 未找到旧串 —— ${f.old.slice(0, 60)}…`);
         missed++;
@@ -171,7 +325,7 @@ async function main(): Promise<number> {
     }
     if (!dry && next !== text) await writeFile(p, next, 'utf8');
   }
-  console.log(`应用 ${applied} 条，未命中 ${missed} 条${dry ? '（dry-run，未写盘）' : ''}`);
+  console.log(`应用 ${applied} 条，已应用跳过 ${skipped} 条，未命中 ${missed} 条${dry ? '（dry-run，未写盘）' : ''}`);
   return missed > 0 ? 1 : 0;
 }
 
