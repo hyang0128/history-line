@@ -66,11 +66,10 @@ type: event
 ## 批注
 
 - author: 脱脱等
-  source: 《辽史》太祖本纪赞语
+  source: 《辽史》卷二 太祖本纪下 赞语
   category: classical
   license: public-domain
   text: 元修《辽史》史臣在《太祖本纪》赞语中肯定阿保机经略诸部、创制立法、筑城置官的功业，认为契丹能自立一方并长期与中原相抗始于太祖，同时也指出其御下严苛的一面。这一评价代表元朝官方的历史定位。
-  note: 卷次待核。
 - author: 陈述
   source: 《契丹史论证稿》（1936），后修订为《契丹政治史稿》
   category: modern

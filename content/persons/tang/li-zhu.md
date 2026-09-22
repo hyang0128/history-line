@@ -70,11 +70,10 @@ titles:
   quote: 天生烝民，其势不能自治，必相与戴君以治之。
   note: 引文为“臣光曰”首句。
 - author: 欧阳修
-  source: 《新五代史·唐六臣传》
+  source: 《新五代史》卷三十五 唐六臣传
   category: classical
   license: public-domain
   text: 欧阳修为唐亡深感痛惜，在唐六臣传中讥讽唐朝旧臣张文蔚、杨涉等在朱温代唐时失节仕梁，感叹唐非无贤才，而是君主不能用之；哀帝朝群臣劝进，正是士大夫失节的典型时刻。
-  note: 卷次待核。
 - author: 吕思勉
   source: 《隋唐五代史》
   category: modern
