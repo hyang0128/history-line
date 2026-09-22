@@ -60,7 +60,7 @@ type: event
   category: classical
   license: public-domain
   text: 王夫之论东汉之亡，认为张角等起事不是偶然妖贼之作乱，而是桓灵以来政治昏暗、民不聊生所致；他对谶纬口号持鄙视态度，但更把责任归于在位者不能安民、防民。
-  note: 中平元年纪事在卷五十八汉纪五十。
+  note: 卷次待核（论桓灵诸卷）。
 - author: 葛洪
   source: 《抱朴子·内篇·道意》
   category: classical

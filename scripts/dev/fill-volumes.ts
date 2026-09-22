@@ -148,19 +148,7 @@ const FIXES: Array<{ file: string; old: string; new: string; reason: string }> =
     file: 'persons/sui/yuwen-kai.md',
     old: '- source: 《隋书》宇文恺传（卷次待核）',
     new: '- source: 《隋书》卷六十八 宇文恺传',
-    reason: '隋书卷68=宇文恺传（宇文恺、阎毗、何稠同卷，点校本）',
-  },
-  {
-    file: 'persons/sui/yuwen-kai.md',
-    old: '  note: 卷次待核。',
-    new: '  note: 卷六十八（点校本）。',
-    reason: '同上，去冗余待核',
-  },
-  {
-    file: 'persons/sui/yuwen-kai.md',
-    old: '  source: 《隋书》宇文恺传（卷次待核）',
-    new: '  source: 《隋书》卷六十八 宇文恺传',
-    reason: '批注引文同卷',
+    reason: '隋书卷68=宇文恺传（已完成；以此条占位审计，注意：该文件的通用 note 替换已从映射中移除，防止幂等重跑误伤北史/通鉴条目）',
   },
   {
     file: 'events/five-dynasties-ten-kingdoms/hou-tang-mie-liang.md',
@@ -294,6 +282,97 @@ const FIXES: Array<{ file: string; old: string; new: string; reason: string }> =
     new: '- source: 《元史》卷五十八 地理志一',
     reason: '“幅员之广咸不逮元”序文在地理志一卷首（卷58）',
   },
+  // ===== 第三批 =====
+  {
+    file: 'events/eastern-han/dangguzhihuo.md',
+    old: '- source: 《资治通鉴》汉纪（桓帝延熹九年至灵帝建宁二年）',
+    new: '- source: 《资治通鉴》卷五十五至五十六 汉纪四十七至四十八（延熹九年至建宁二年）',
+    reason: '延熹九年(166)在通鉴卷55，建宁二年(169)在卷56',
+  },
+  {
+    file: 'events/eastern-han/dangguzhihuo.md',
+    old: '  note: 具体卷次待核。',
+    new: '  note: 卷五十五至五十六（延熹九年、建宁二年）；中平元年大赦党人另见卷五十八。',
+    reason: '同上并补中平元年卷次',
+  },
+  {
+    file: 'events/eastern-han/banchao-western-regions.md',
+    old: '  note: 具体分卷以中华书局点校本为准，此处卷次待核。',
+    new: '  note: 卷四十五至四十八，见中华书局点校本。',
+    reason: '源行已有卷45-48，去掉多余待核',
+  },
+  {
+    file: 'persons/eastern-han/cai-lun.md',
+    old: '- source: 《资治通鉴》元兴元年条',
+    new: '- source: 《资治通鉴》卷四十八 汉纪四十 元兴元年',
+    reason: '元兴元年(105)在通鉴卷48汉纪40',
+  },
+  {
+    file: 'persons/eastern-han/cai-lun.md',
+    old: '  note: 具体卷次待核。',
+    new: '  note: 元兴公元年在卷四十八汉纪四十（按点校本复核更妥）。',
+    reason: '同上',
+  },
+  {
+    file: 'events/tang/wencheng-princess-tubo.md',
+    old: '- source: 《旧唐书·吐蕃传》',
+    new: '- source: 《旧唐书》卷一百九十六 吐蕃传（上下）',
+    reason: '旧唐書吐蕃传=卷196上下',
+  },
+  {
+    file: 'events/tang/wencheng-princess-tubo.md',
+    old: '  note: 卷次待核；两《唐书》吐蕃传均有上下卷，本条目据传文大意。',
+    new: '  note: 卷一百九十六吐蕃传分上下两卷，本条目据传文大意。',
+    reason: '同上',
+  },
+  {
+    file: 'events/tang/wencheng-princess-tubo.md',
+    old: '- source: 《新唐书·吐蕃传》',
+    new: '- source: 《新唐书》卷二百一十六 吐蕃传（上下）',
+    reason: '新唐書吐蕃传=卷216上下',
+  },
+  {
+    file: 'events/tang/wencheng-princess-tubo.md',
+    old: '  note: 卷次待核。\n- source: 《资治通鉴》唐纪 贞观十五年',
+    new: '  note: 卷二百一十六吐蕃传分上下两卷。\n- source: 《资治通鉴》卷一百九十六 唐纪十二 贞观十五年',
+    reason: '补注+贞观十五年(641)=通鉴卷196',
+  },
+  {
+    file: 'events/tang/wencheng-princess-tubo.md',
+    old: '  note: 卷次待核；系年与两《唐书》略有出入。',
+    new: '  note: 卷一百九十六唐纪十二；系年与两《唐书》略有出入。',
+    reason: '同上',
+  },
+  {
+    file: 'events/tang/wencheng-princess-tubo.md',
+    old: '  source: 《资治通鉴》贞观十五年',
+    new: '  source: 《资治通鉴》卷一百九十六 唐纪十二 贞观十五年',
+    reason: '批注引文同卷',
+  },
+  {
+    file: 'persons/five-dynasties-ten-kingdoms/li-yu.md',
+    old: '- source: 《宋史》南唐李氏世家',
+    new: '- source: 《宋史》卷四百七十八 南唐李氏世家',
+    reason: '宋史卷478世家一=南唐世系',
+  },
+  {
+    file: 'persons/five-dynasties-ten-kingdoms/li-yu.md',
+    old: '  note: 卷次待核；《宋史》为元人据宋国史修成。',
+    new: '  note: 卷四百七十八世家一（据点校本应复核一次）；《宋史》为元人据宋国史修成。',
+    reason: '同上，保留复核提示',
+  },
+  {
+    file: 'persons/five-dynasties-ten-kingdoms/li-yu.md',
+    old: '- source: 《续资治通鉴长编》开宝七年至八年',
+    new: '- source: 《续资治通鉴长编》卷十五至十六 开宝七年至八年',
+    reason: '长编卷15=开宝七年，卷16=开宝八年',
+  },
+  {
+    file: 'persons/five-dynasties-ten-kingdoms/li-yu.md',
+    old: '  note: 卷次待核；《续资治通鉴长编》为南宋人编纂，所据多为北宋官方文书。',
+    new: '  note: 卷十五至十六，建议核点校本；《续资治通鉴长编》为南宋人编纂，所据多为北宋官方文书。',
+    reason: '同上，保留复核提示',
+  },
 ];
 
 async function main(): Promise<number> {
@@ -314,6 +393,8 @@ async function main(): Promise<number> {
     let next = text;
     for (const f of fixes) {
       if (next.includes(f.old)) {
+        const n = next.split(f.old).length - 1;
+        if (n > 1) console.error(`[warn] ${file}: 旧串命中 ${n} 处，请人工确认是否均为同一意图 —— ${f.old.slice(0, 40)}…`);
         if (!dry) next = next.split(f.old).join(f.new);
         applied++;
       } else if (next.includes(f.new)) {
