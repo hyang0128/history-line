@@ -64,7 +64,7 @@ type: topic
 ## 批注
 
 - author: 王夫之
-  source: 《读通鉴论》
+  source: 《读通鉴论》卷十一至十二 晋武帝、惠帝、怀帝、愍帝
   category: classical
   license: public-domain
   text: 王夫之认为西晋引纳内迁胡族而又处置无方，是五胡之乱的祸根；他坚持夷夏大防，对胡族内迁与晋室失策均有严厉批评，代表了明末清初史家对华夷问题的典型立场。

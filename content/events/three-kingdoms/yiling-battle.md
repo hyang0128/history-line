@@ -67,11 +67,11 @@ type: event
 ## 批注
 
 - author: 王夫之
-  source: 《读通鉴论》
+  source: 《读通鉴论》卷十 三国
   category: classical
   license: public-domain
   text: 王夫之在论三国兴亡时认为刘备伐吴是逞一时私忿，违背诸葛亮联吴抗魏的方略；吴蜀相争只会让曹魏坐收渔利，蜀汉从此失去与曹魏争衡的实力。
-  note: 卷次待核。
+  note: 《读通鉴论》三国部分为卷十；具体条目待核。
 - author: 吕思勉
   source: 《三国史话》
   category: modern

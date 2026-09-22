@@ -69,11 +69,11 @@ type: event
 ## 批注
 
 - author: 王夫之
-  source: 《宋论·度宗》
+  source: 《宋论》卷十五 度宗
   category: classical
   license: public-domain
   text: 王夫之论宋末之亡，集中批评度宗朝政与贾似道误国：襄阳被围六年，朝廷上下讳言兵事、救援坐视，致使要塞必失；他认为襄樊失守后长江天险便不可恃，宋亡是上下积弊所致，而非偶然。
-  note: 《宋论》论度宗一篇，卷次待核。
+  note: 《宋论》末卷（卷十五）论度宗、恭宗、端宗、祥兴帝；具体条目待核。
 - author: 钱穆
   source: 《国史大纲》第六编
   category: modern

@@ -62,7 +62,7 @@ type: topic
 ## 批注
 
 - author: 王夫之
-  source: 《读通鉴论》唐肃宗、代宗诸卷（卷次待核）
+  source: 《读通鉴论》卷二十三 肃宗、代宗
   category: classical
   license: public-domain
   text: 王夫之批评唐廷对藩镇一味姑息，认为肃宗、代宗不肯在安史乱后彻底收拾河北，裂土授降将等于自弃河北，养成此后百余年的割据祸患。

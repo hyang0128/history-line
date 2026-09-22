@@ -56,11 +56,11 @@ type: event
 ## 批注
 
 - author: 王夫之
-  source: 《读通鉴论》
+  source: 《读通鉴论》卷五至六 王莽、更始、光武
   category: classical
   license: public-domain
   text: 王夫之认为王莽败亡的根子在改制扰民、失天下心，绿林赤眉之起是百姓不堪征敛与流离的结果；光武所以能定天下，主要靠革除莽政、与民休息，而不专恃武功。他把“民心”作为解释新莽速亡与光武兴起的关键。
-  note: 卷次待核。
+  note: 《读通鉴论》按帝分卷，王莽在卷五末，后汉更始、光武在卷六；具体条目待核。
 - author: 钱穆
   source: 《国史大纲》
   category: modern

@@ -56,11 +56,11 @@ type: event
 ## 批注
 
 - author: 王夫之
-  source: 《读通鉴论》
+  source: 《读通鉴论》卷八 灵帝
   category: classical
   license: public-domain
   text: 王夫之论东汉之亡，认为张角等起事不是偶然妖贼之作乱，而是桓灵以来政治昏暗、民不聊生所致；他对谶纬口号持鄙视态度，但更把责任归于在位者不能安民、防民。
-  note: 卷次待核（论桓灵诸卷）。
+  note: 《读通鉴论》按帝分卷，桓帝、灵帝均在卷八；具体条目待核。
 - author: 葛洪
   source: 《抱朴子·内篇·道意》
   category: classical

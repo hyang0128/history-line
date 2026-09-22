@@ -57,7 +57,7 @@ type: event
 ## 批注
 
 - author: 王夫之
-  source: 《宋论》（卷次待核）
+  source: 《宋论》卷十一 孝宗
   category: classical
   license: public-domain
   text: 王夫之论孝宗朝，认为孝宗志在恢复而计虑未周，仓促北伐，所用张浚忠而不足以任事，符离一败后士气尽丧，南宋恢复之机由此断送，和议遂成定局。

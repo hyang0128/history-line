@@ -63,7 +63,7 @@ type: event
 ## 批注
 
 - author: 王夫之
-  source: 《读通鉴论》
+  source: 《读通鉴论》卷十九 隋炀帝
   category: classical
   license: public-domain
   text: 王夫之在论隋炀帝时反复强调“民力”与“民心”为兴亡之本，批评炀帝大兴功役、屡征辽东，使四海困敝；他又指出炀帝猜忌大臣，导致统治集团内部先溃，隋亡不只是因为“盗贼”。
