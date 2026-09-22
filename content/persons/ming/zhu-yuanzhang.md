@@ -65,11 +65,11 @@ titles: []
 ## 批注
 
 - author: 赵翼
-  source: 《廿二史札记》（明代部分）
+  source: 《廿二史札记》卷三十二 胡蓝之狱、明初文字之祸、明祖晚年去严刑等条
   category: classical
   license: public-domain
   text: 赵翼论明祖以布衣起事，颇多猜忌，借胡惟庸、蓝玉二狱屠戮功臣；又论洪武以重典治元末积弊，用法极严，名为惩贪，实则株连过广，使朝臣人人自危。
-  note: 卷次待核；赵翼原文为公版，此处系转述其大意。
+  note: 卷三十二已核目录；赵翼原文为公版，此处系转述其大意。
 - author: 吴晗
   source: 《朱元璋传》
   category: modern

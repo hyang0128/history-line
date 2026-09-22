@@ -63,11 +63,11 @@ type: topic
 ## 批注
 
 - author: 赵翼
-  source: 《廿二史札记》
+  source: 《廿二史札记》卷三十五 明代宦官、卷三十六 明代宦官先后权势
   category: classical
   license: public-domain
   text: 赵翼论明代宦官与厂卫之祸，认为宦官掌东厂后威福自专，锦衣卫、东厂互相勾结，缇骑四出，官民重足而立；他把宦官乱政看作明朝政治废弛的一大病根，而厂卫正是宦官得以擅权的凭藉。
-  note: 卷次待核。所引为赵翼史论大意，非原文。
+  note: 卷三十五、三十六已核目录。所引为赵翼史论大意，非原文。
 - author: 吴晗
   source: 《明代的锦衣卫和东西厂》
   category: modern

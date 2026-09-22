@@ -59,11 +59,11 @@ type: event
 ## 批注
 
 - author: 赵翼
-  source: 《廿二史札记》“万历中矿税之害”
+  source: 《廿二史札记》卷三十五 万历中矿税之害
   category: classical
   license: public-domain
   text: 赵翼历数万历朝矿税太监在各省的虐害，认为矿税之弊遍天下，而神宗利令智昏、不恤民力，是明代中期以后衰象加重的关键之一。
-  note: 篇名待核，卷次待核。
+  note: 篇名与卷次已核目录。
 - author: 孟森
   source: 《明清史讲义》
   category: modern

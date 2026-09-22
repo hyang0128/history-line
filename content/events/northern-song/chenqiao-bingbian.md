@@ -68,11 +68,10 @@ type: event
 ## 批注
 
 - author: 赵翼
-  source: 《廿二史札记》
+  source: 《廿二史札记》卷二十一 五代诸帝多由军士拥立
   category: classical
   license: public-domain
   text: 赵翼论五代诸帝多由军士拥立，宋太祖以周臣受禅仍沿此途；其成就所在，是得国之后不纵武人，渐收财赋、兵权归中央，遂免于五代短祚之祸。
-  note: 卷次待核。
 - author: 钱穆
   source: 《国史大纲》
   category: modern

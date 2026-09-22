@@ -63,7 +63,6 @@ type: event
   category: classical
   license: public-domain
   text: 赵翼以清代考史家的立场评论明太祖，认为朱元璋以布衣起兵而能平定天下，在于得人心、不嗜杀；又批评其晚年借胡惟庸、蓝玉诸狱屠戮功臣，猜忌之深为汉唐以来所罕见。
-  note: 卷次待核。
 - author: 钱穆
   source: 《中国历代政治得失》第二讲 明代
   category: modern

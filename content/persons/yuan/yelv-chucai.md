@@ -64,11 +64,11 @@ titles:
 ## 批注
 
 - author: 赵翼
-  source: 《廿二史札记》
+  source: 《廿二史札记》卷三十 元史诸条
   category: classical
   license: public-domain
   text: 赵翼论元初攻战屠城之烈，列举太宗朝汴京之降本有屠城之议，耶律楚材以城中工匠与财富所在为由进谏，使一城得免，认为此类劝谏在当时的普遍杀戮中属少见而关键。
-  note: 卷次待核；所论为元初用兵屠城之事。
+  note: 卷三十为元史部分（已核目录），惟条目标题中无专论屠城者，所述或见「元初诸将多掠人为私户」等条，具体条目待核。
 - author: 王国维
   source: 《耶律文正公年谱》
   category: modern

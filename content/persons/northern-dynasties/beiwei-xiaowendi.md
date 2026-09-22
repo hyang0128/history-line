@@ -69,11 +69,11 @@ titles:
 ## 批注
 
 - author: 赵翼
-  source: 《廿二史札记》
+  source: 《廿二史札记》卷十四 魏孝文迁洛
   category: classical
   license: public-domain
   text: 赵翼论北朝兴亡，强调孝文帝迁洛使鲜卑贵族迁居中原，北边六镇渐成边鄙，镇兵地位与待遇下降；其后六镇起兵，高欢、宇文泰乘乱分据东西，北魏由此分裂。迁都的文化功业与其造成的北镇失衡，并见于此论。
-  note: 卷次待核；此为后世史论，需与具体史实对照。
+  note: 卷十四「魏孝文迁洛」条已核目录；此为后世史论，需与具体史实对照。
 - author: 田余庆
   source: 《拓跋史探》
   category: modern

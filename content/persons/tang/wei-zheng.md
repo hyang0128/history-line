@@ -69,7 +69,7 @@ titles:
 ## 批注
 
 - author: 赵翼
-  source: 《廿二史札记》“贞观中直谏者”条（卷次待核）
+  source: 《廿二史札记》卷十九 贞观中直谏者不止魏徵
   category: classical
   license: public-domain
   text: 赵翼在论唐史时注意到贞观一朝直谏之风，认为太宗能虚心受谏，魏征等谏臣才能尽其言；他把纳谏与否视为君主度量与治乱盛衰的重要标志。

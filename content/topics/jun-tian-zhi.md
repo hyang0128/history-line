@@ -59,11 +59,10 @@ type: topic
 ## 批注
 
 - author: 马端临
-  source: 《文献通考》田赋考
+  source: 《文献通考》卷二 田赋考二
   category: classical
   license: public-domain
   text: 马端临沿杜佑《通典》之例考历代田制，在田赋考中历述均田之制由北魏创行、隋唐因袭，终归于兼并废弛。他认为国家试图以授田保证赋役，但田不在官的现实使均田难以持久，后世议论恢复均田者多昧于时势。
-  note: 卷次待核。
 - author: 陆贽
   source: 《陆宣公奏议·均节赋税恤百姓六条》
   category: classical

@@ -55,7 +55,6 @@ titles:
 - source: 《北史》卷十二 隋本纪下
   credibility: B
   text: 记隋炀帝本纪，内容与《隋书》大致互见，可用于对勘文字与细节。
-  note: 卷次待核。
 
 ## 野史
 

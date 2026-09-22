@@ -55,11 +55,11 @@ region: 日本
 ## 批注
 
 - author: 杜佑
-  source: 《通典》边防典
+  source: 《通典》卷一百八十五 边防典一 东夷上·倭
   category: classical
   license: public-domain
   text: 杜佑在《通典·边防典》设"倭"条，按时代汇辑《汉书》《后汉书》《三国志》关于倭的记载，反映唐代中国对日本列岛的知识仍主要取自汉魏史书，"倭"的记述在唐代被纳入四裔边防的知识框架之中。
-  note: 具体卷次待核。
+  note: 具体卷次已核目录。
 - author: 国立历史民俗博物馆考古研究团队
   source: 日本国立历史民俗博物馆关于弥生时代实测年代的碳十四测定研究
   category: modern

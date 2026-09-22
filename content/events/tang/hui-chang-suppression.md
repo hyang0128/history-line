@@ -68,7 +68,7 @@ type: event
   category: classical
   license: public-domain
   text: 赵翼考论唐代诸帝因服食丹药致死之事，指出武宗尊道士而灭佛，晚年又服丹药致死；他认为唐代帝王对佛道二教的取舍多系于个人信仰，僧寺之弊与道士进言共同促成了会昌毁佛。
-  note: 条目名与卷次据通行本《廿二史劄记》，手头无原书，引文待核。
+  note: 卷十九「唐诸帝多饵丹药」条已核目录；引文待核。
 - author: 汤用彤
   source: 《隋唐佛教史稿》
   category: modern
