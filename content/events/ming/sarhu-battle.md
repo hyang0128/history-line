@@ -62,13 +62,6 @@ type: event
 
 ## 批注
 
-- author: 王夫之
-  source: 《读通鉴论》卷末 叙论
-  category: classical
-  license: public-domain
-  text: 王夫之论明末军事，认为明廷师老财匮而轻于征讨，以不习险远之兵驱之绝塞，必致丧师；四路并出而无统一节制，是杨镐败亡的主要原因。
-  quote: 兵之所加，必量其力之所任；力不能任而强用之，无不败矣。
-  note: 王夫之直接论萨尔浒的文字不多，此条系其论用兵节制通论中的概括，卷次待核。
 - author: 陈寅恪
   source: 《柳如是别传》第三章引清人论辽东事
   category: modern
