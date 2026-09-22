@@ -7,8 +7,8 @@ date:
   start: 200
   end: 200
   precision: year
-era: wei-jin-nanbei
-dynasty: three-kingdoms
+era: qin-han
+dynasty: eastern-han
 importance: 4
 tags:
   - 战争
@@ -43,10 +43,10 @@ type: event
   credibility: B
   text: 记袁绍在官渡战败后势力骤衰，建安七年发病呕血而死，二子相争，袁氏最终为曹操所灭。与《三国志》所记互有详略。
   note: 后汉书记袁绍事分上下卷，官渡战事在上篇；卷次按中华书局点校本。
-- source: 《资治通鉴》汉纪 建安五年（卷次待核）
+- source: 《资治通鉴》卷六十三 汉纪五十五 建安五年
   credibility: B
   text: 以后来编年史视角综合记载官渡之战，详叙曹操用荀攸、郭嘉之谋，袁绍不听沮授、田丰之谏，许攸来降、曹操焚乌巢等经过，并描写袁绍“外宽内忌”的为人。
-  note: 具体卷次待核，可确定为建安五年纪事。
+  note: 建安五年纪事在卷六十三汉纪五十五（补注：按点校本复核过，仍建议人工再核一次）。
 
 ## 野史
 
@@ -58,7 +58,7 @@ type: event
 ## 批注
 
 - author: 司马光
-  source: 《资治通鉴》汉纪 建安五年条（卷次待核）
+  source: 《资治通鉴》卷六十三 汉纪五十五 建安五年
   category: classical
   license: public-domain
   text: 通鉴用编年体把官渡之战夹叙在曹操、袁绍双方谋臣的进谏与拒谏之间，凡袁绍失策处以沮授、田丰、许攸之谏为对照，凡曹操胜计处以荀彧、郭嘉、荀攸之言为伏笔，以见“智谋胜于兵力”之意。

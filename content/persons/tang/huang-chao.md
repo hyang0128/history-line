@@ -8,7 +8,7 @@ summary: 唐末盐贩出身的起义领袖，建大齐称帝于长安，兵败�
 date:
   start: 820
   end: 884
-  precision: year
+  precision: circa
 era: sui-tang-wudai
 dynasty: tang
 importance: 4

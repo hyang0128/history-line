@@ -319,3 +319,41 @@
 结果：validate 0 错误；unknown-related 从 401 → 44 条，剩余全部指向 queue 未来节点（合法等待态）。非 related 的既有警告（official-count 超量等）不在本次范围。
 
 财务决定：models.yaml 单价回填、gen:eval 定档、model-eval.md 定稿等账务工作**移出项目范围**（用户自行核算），models.yaml 保持占位单价，stats 费用恒 ¥0 属预期。
+
+## 2026-09-21 · 内容订正会话 · related 指向复核与史料错误订正
+
+范围：全部 364 个内容文件（329 节点 + 35 分期朝代）通读核对（topics/world 全量 + 全部 importance=5 + 全部事件 + 全部人物）；机械交叉核对用新脚本 `scripts/dev/check-refs.ts`（related 悬空/重复、日期落朝代、era 与 dynasty.parent、目录与 dynasty 一致性）。
+
+已订正（21 处）：
+- **类目归属**：赤壁、官渡 200/208 属东汉末——移入 events/eastern-han/，era→qin-han、dynasty→eastern-han；三家分晋（-453/-403）移入 events/warring-states/，dynasty→warring-states。URL 按 frontmatter id 生成，移动不破坏链接。
+- **引文/出处**：xuanwu-gate 常何墓志"敦煌发现"→民国洛阳出土（非敦煌）；kaiyuan 通典户口改"天宝十四载 891万/5291万"并注明 906万/5280万系另一系统天宝十三载数字（待核出处）；zhenguan 钱穆《国史大纲》"第四编第二十三章"→第五编（章次待核）；liangshui 同书编章改"南北经济文化之转移诸章（待核）";an-lushan 李林甫奏言"文士为将"→"文臣为将"（待点校本复核）;sui-south-conquest 伐陈诏引文误系"九年春正月己酉"→开皇八年十月（干支待核）;mongol-empire-founding 元史引文补"帝大会诸王群臣，建九游之白旗"；chengji-si-han 引文同句对齐；han-wudi 通鉴汉纪十四补卷二十二（标"再核对"）;shenlong-coup 新唐书五王传卷115→卷120；dongzhuo-disorder quote 改归三国志卷一武帝纪（原系卷六）;liu-yu-song 通鉴引文"庚午王戌"干支连排错误待核；qin-shi-huang 国史大纲编次改第三编；neige 钱穆《中国历代政治得失》第三讲→第四讲（明代）。
+- **内容卫生**：black-death AI综述学者名错乱（"弗拉基米尔·A. 穆罕默德""大卫·赫布斯特"）改为本尼迪克托/赫利希（标待核）并删除"仅供时间线主编复核"指令残句、编年史作者名标待核（原"约翰·克利夫兰"疑为 John Clyn 之误）；buddha-rise 删"任务元数据"字样；long-march 补"金冲及主编"。
+- **frontmatter**：sui-late-uprisings related li-yuan 去重；huang-chao 生年 820 改 precision: circa。
+
+剩余 5 条机械提示（属设计取舍，未改）：mongol-empire-founding 1206 挂在 yuan（1271-1368）外——"蒙古→元"连续体，建议保留或加 note；world 4 条（japan-yayoi/mesopotamia-sumer/minoan-crete/parthia-empire）跨中国分期的 era 映射按主体年代归属，未改。
+
+人工复核清单（本会话未动、留给审核者的低置信度项）：
+- an-lushan：李林甫奏言引文"文臣为将"、通鉴卷216天宝六载系年
+- sui-south-conquest：伐陈命帅确切干支（八年十月？《隋书》作何干支）
+- han-wudi：通鉴卷二十二（汉纪十四）卷次
+- shenlong-coup：新唐书卷120 五王传
+- liu-yu-song：通鉴刘裕即位日干支
+- jiaozi-paper-money：《宋史》食货志卷181 引文"蜀人铁钱重"个别字
+- bai-jia-zheng-ming："齐稷下学士复盛"前"是以/于是"
+- 辽/金多篇"宾铁"vs 通行本"镔铁"异写
+- koran 类小结：black-death 学者名与人名两处替换依据不足，有实体书时核对
+
+其他未动：PLAN.md §11 状态表已过期（A3/A4/B2 实际完成，与 README 不符），维护归规划会话；models.yaml 单价勿回填（账务移出项目）。
+
+## 2026-09-21 · 内容订正会话（续）· draft 卷次待核批量消化
+
+- 新工具：`scripts/dev/fill-volumes.ts`（内置可审计映射，精确串替换，`npm run fill:volumes [--dry-run]`），继续追加映射即可复用。
+- 本轮补 21 处高置信度卷次（≥85%）：董卓之乱(后汉书72/69、通鉴59-60)、官渡(通鉴63)、光武(卷40去冗余)、黄巾(通鉴58注)、后唐灭梁(新五代史5/37、通鉴271-272)、石敬瑭(通鉴280、新五代史9)、金灭辽(辽史27-30、宋史19-22)、蒙古灭西夏金(金史17-18、宋史412)、土木之变(明史纪事本末卷33篇名订正《景帝登极守御》)。
+- 待核标记总量 604 → 464（含 "原书待核" 类 AI 转述注，非全部可消化）。
+- validate 0 错误。仍未提交 git。
+
+剩余可继续消化的类别（下一会话按此分桶）：
+1. 《读通鉴论》卷次（卷一~三十对应朝代段，M0 已在 worklog 列了 4 条待核项，建议持实体书统一核）
+2. 通鉴卷-年份对（大量"卷次待核"可直接按《通鉴》目录填，如党锢 55-58、班超 45-48 等，置信度高的先填）
+3. 《宋论》《廿二史札记》卷次条目名
+4. 辽金诸篇"宾铁/镔铁"异写、稷下"是以/于是"等引文异字

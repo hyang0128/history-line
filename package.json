@@ -12,6 +12,8 @@
     "check": "astro check",
     "generate": "tsx scripts/generate/run.ts",
     "validate": "tsx scripts/validate.ts",
+    "check:refs": "tsx scripts/dev/check-refs.ts",
+    "fill:volumes": "tsx scripts/dev/fill-volumes.ts",
     "stats": "tsx scripts/stats.ts",
     "review": "tsx scripts/review.ts",
     "fixup": "tsx scripts/fixup.ts",

@@ -10,7 +10,7 @@ date:
   end: -403
   precision: year
 era: spring-autumn-warring
-dynasty: spring-autumn
+dynasty: warring-states
 importance: 5
 tags:
   - 政治

@@ -9,8 +9,8 @@ date:
   start: 208
   end: 208
   precision: year
-era: wei-jin-nanbei
-dynasty: three-kingdoms
+era: qin-han
+dynasty: eastern-han
 importance: 5
 tags:
   - 战争
