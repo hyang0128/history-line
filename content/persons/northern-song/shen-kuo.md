@@ -54,10 +54,11 @@ titles: []
 ## 批注
 
 - author: 纪昀等
-  source: 《四库全书总目》子部杂家类《梦溪笔谈》提要（卷次待核）
+  source: 《四库全书总目》卷一百二十 子部三十 杂家类四《梦溪笔谈》提要
   category: classical
   license: public-domain
   text: 《四库全书总目》肯定沈括学问淹博，兼通天文、算学、音律、医药，为北宋少有的通才；同时也指出《梦溪笔谈》某些记载或以传闻为据，需要辨析。
+  note: 卷一百二十为子部三十「杂家类四」（卷次已核维基文库本）；提要著录《梦溪笔谈》二十六卷、《补笔谈》二卷、《续笔谈》一卷。
 - author: 李约瑟
   source: 《中国科学技术史》（Science and Civilisation in China）第一卷
   category: modern
