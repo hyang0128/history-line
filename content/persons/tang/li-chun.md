@@ -20,8 +20,9 @@ location: 长安
 related:
   - pei-du
   - yuanhe-restoration
-status: draft
+status: reviewed
 generated_by: deepseek-v4-flash[1M]
+reviewed_at: 2026-09-23
 type: person
 titles:
   - 宪宗

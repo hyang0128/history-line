@@ -18,8 +18,9 @@ tags:
   - 沙陀
 location: 魏州、汴州、黄河下游
 related: []
-status: draft
+status: reviewed
 generated_by: deepseek-v4-flash[1M]
+reviewed_at: 2026-09-23
 type: event
 ---
 

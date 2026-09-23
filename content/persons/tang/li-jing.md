@@ -22,8 +22,9 @@ tags:
 location: 三原（今陕西三原）、长安、江陵、定襄、青海湖以西
 related:
   - li-shimin
-status: draft
+status: reviewed
 generated_by: deepseek-v4-flash[1M]
+reviewed_at: 2026-09-23
 type: person
 titles:
   - 卫国公

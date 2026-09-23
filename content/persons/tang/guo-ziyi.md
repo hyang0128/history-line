@@ -21,8 +21,9 @@ tags:
 location: 华州郑县、长安
 related:
   - an-lushan-rebellion
-status: draft
+status: reviewed
 generated_by: deepseek-v4-flash[1M]
+reviewed_at: 2026-09-23
 type: person
 titles:
   - 汾阳王

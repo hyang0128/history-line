@@ -26,8 +26,9 @@ related:
   - huang-chao-uprising
   - zhu-wen
   - li-cunxu
-status: draft
+status: reviewed
 generated_by: deepseek-v4-flash[1M]
+reviewed_at: 2026-09-23
 type: person
 titles:
   - 河东节度使

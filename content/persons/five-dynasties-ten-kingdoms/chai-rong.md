@@ -22,8 +22,9 @@ location: 开封、高平、淮南、瓦桥关
 related:
   - zhao-kuangyin
   - chenqiao-bingbian
-status: draft
+status: reviewed
 generated_by: deepseek-v4-flash[1M]
+reviewed_at: 2026-09-23
 type: person
 titles:
   - 后周世宗

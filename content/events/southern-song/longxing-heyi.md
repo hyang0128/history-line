@@ -21,8 +21,9 @@ location: 符离（今安徽宿州市）、淮北、临安、中都
 related:
   - shaoxing-heyi
   - kaixi-beifa
-status: draft
+status: reviewed
 generated_by: deepseek-v4-flash[1M]
+reviewed_at: 2026-09-23
 type: event
 ---
 

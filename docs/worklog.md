@@ -491,3 +491,23 @@ validate 0 错误。
 - 国初事迹：一卷不分卷（文库本题解核）→ hu-lan-cases。
 - 春明梦余录：卷一〈建置〉载永乐元年定北京及永乐十八年建北京诏、卷六〈宫阙〉载紫禁城制度 → beijing-move。
 - 太平御览引《文士传》：卷七五二原文「文士传曰：张衡尝作木鸟，假以羽翮，腹中施机，能飞数里」→ zhang-heng。
+
+### 2026-09-23 · draft→reviewed 首批（据「前 9 批确实核过」口径）
+
+- 背景：`.tmp-ws/audit-status.py` 筛出 31 个 `fully_clean`（0「待核」且 0「（AI收集/原书待核）」声明）。用户提示「可直接翻 reviewed」。
+- 判定：`fully_clean` 只是**机械过滤**（无残留标记），不等于「逐条核到标准观点」。前 9 批是**待核驱动**——只动带标记条目，因此「干净」里混有两类：前 9 批改过又恰好干净的（真核过）、以及从头未打标记从没进过队列的（干净≠核过）。
+- 方法：把 9 批卷次消化 commit（a56931c…705eca7）实际改动的文件清单与 31 个 fully_clean 求交集，得到精确分界。
+- 结果：**21 篇 `draft→reviewed`**（补 `reviewed_at: 2026-09-23`，格式对齐 li-shimin 基准）＝前 9 批确实核过且现无残留标记者；**10 篇保持 draft**（干净但未在批次中核过）。
+- 翻 review 的 21：guangwu-restoration、hou-tang-mie-liang、zhou-shizong-reform、jin-destroy-liao、kaixi-beifa、longxing-heyi、tang-conquest-of-eastern-turks、wencheng-princess-tubo、san-jia-fen-jin、han-xiongnu-war、zhangqian-western-regions（事件 11）；chai-rong、li-yu、xu-guang-qi、si-ma-guang、fang-xuanling、guo-ziyi、li-chun、li-jing、li-keyong、li-su（人物 10）。
+- 保持 draft 的 10：dazexiang-uprising、qin-great-wall、tuien-ling、guan-zhong、du-ruhui、wang-xianzhi、yao-chong、huo-qubing、islamic-caliphate、meiji-restoration。
+- 遗留：这 21 篇只按「卷次/篇名定位 + 无残留标记」背书，style-guide §7 的第 2 条（quote 逐字对照）、第 3 条（modern 学者观点归属）仍属部分覆盖；如严格按 §7 全 10 条，仍需人工再核 quote 与学者观点。validate 0 错误。
+
+### 2026-09-23 · 卷次消化收尾 · 31 个 fully_clean 甄别翻 reviewed
+
+背景：`.tmp-ws/audit-status.py` 机械筛出 31 个「fully_clean」（0 待核 + 0 AI 转述声明）draft。澄清一个易混点：**fully_clean ≠ 已核到标准观点**——前者只是「没打标记」，后者要求逐条核过书名/卷次、引文逐字、学者观点归属（style-guide §7 十条）。前 9 批卷次消化是「待核驱动」，只动带 `（卷次待核）` 标记的条目；所以「干净」里混着「真核过」与「从未进队列、干净仅因没标记」两类，不能整体翻 reviewed。
+
+判定（用户选定「只翻前 9 批确实核过的」）：把 9 批消化 commit 实际改过的文件集合与 31 个 fully_clean 求交集。结果：
+- **21 篇翻 reviewed**（commit 里被核过、当下无残留标记）：事件 11（guangwu-restoration、hou-tang-mie-liang、zhou-shizong-reform、jin-destroy-liao、kaixi-beifa、longxing-heyi、tang-conquest-of-eastern-turks、wencheng-princess-tubo、san-jia-fen-jin、han-xiongnu-war、zhangqian-western-regions）+ 人物 10（chai-rong、li-yu、xu-guang-qi、si-ma-guang、fang-xuanling、guo-ziyi、li-chun、li-jing、li-keyong、li-su）。统一 `status: reviewed` + `reviewed_at: 2026-09-23`，格式对齐 li-shimin.md 基准；仅动 frontmatter 两行。
+- **10 篇保留 draft**（干净但从未在批次中核过）：dazexiang-uprising、qin-great-wall、tuien-ling、guan-zhong、du-ruhui、wang-xianzhi、yao-chong、huo-qubing、islamic-caliphate（仅概述，无三块）、meiji-restoration。
+
+校验：`npm run validate` 0 错误（警告仅 unknown-related 指向未来节点，与本次无关）。现状 32 reviewed / 297 draft。10 篇剩余「干净而未核」的节点，若后续要翻，仍需逐条走一遍 §7（尤其引文逐字与 modern 学者观点归属），不要因「无标记」直接翻。
