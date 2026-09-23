@@ -60,7 +60,7 @@ type: event
   category: classical
   license: public-domain
   text: 孔颖达在《尚书正义》中解释《书序》"将治亳殷"时，采用"殷即亳殷"的传统说法，试图把《史记》所记"复居成汤之故居"与《竹书纪年》"迁于殷"统一起来，是古代注疏对盘庚迁地异文的典型处理。
-  note: 篇卷次待核。
+  note: 卷第九收盘庚上第九、盘庚中第十、盘庚下第十一（卷次已核目录）。
 - author: 王国维
   source: 《观堂集林》所收《殷卜辞中所见先公先王考》《说殷》
   category: modern
